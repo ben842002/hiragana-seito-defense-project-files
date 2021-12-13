@@ -9,10 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TMP_Text hiraganaLineText;
     [SerializeField] TMP_Text dialogueText;
 
-    public Animator animator;
-
-    // Queues are similar to arrays but are more restrictive. Uses a First in First Out principle
-    // Queue performs the function of a buffer
+    // First In, First Out
     private Queue<string> sentences = new Queue<string>();
 
     public void StartDialogue(Dialogue dialogue)
@@ -39,7 +36,6 @@ public class DialogueManager : MonoBehaviour
         // if dialogue finishes
         if (sentences.Count == 0)
         {
-            //EndDialogue();
             return;
         }
 
@@ -57,7 +53,6 @@ public class DialogueManager : MonoBehaviour
     // this ienumator is for the text animation of a character one by one
     IEnumerator TypeSentence(string sentence)
     {
-
         // make dialogueText text empty
         dialogueText.text = "";
 
@@ -69,9 +64,5 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
 
-    }
-    void EndDialogue()
-    {
-        animator.SetBool("isOpen", false);
     }
 }

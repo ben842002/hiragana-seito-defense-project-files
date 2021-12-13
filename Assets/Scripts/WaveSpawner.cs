@@ -29,9 +29,9 @@ public class WaveSpawner : MonoBehaviour
 
     WordManager wordManager;
 
-    [Header("Button and Text")]
+    [Header("Start Waves")]
     [SerializeField] bool StartWaves;
-    [SerializeField] GameObject[] objectsToBeDisabled;
+    [SerializeField] Animator dialogueBoxAnim;
 
     [Header("Waves Count")]
     [SerializeField] TMP_Text wavesCountText;
@@ -56,6 +56,8 @@ public class WaveSpawner : MonoBehaviour
 
         // initialize wave count and text
         UpdateWaveCounter(0);
+
+        dialogueBoxAnim.SetBool("isOpen", true);
     }
 
     private void Update()
@@ -138,13 +140,14 @@ public class WaveSpawner : MonoBehaviour
     // button and text function
     public void StartWaveSpawn()
     {
-        StartWaves = true;
+        Invoke(nameof(StartBool), .25f);
+        dialogueBoxAnim.SetBool("isOpen", false);
         UpdateWaveCounter(1);
+    }
 
-        for (int i = 0; i < objectsToBeDisabled.Length; i++)
-        {
-            objectsToBeDisabled[i].SetActive(false);
-        }
+    void StartBool()
+    {
+        StartWaves = true;
     }
 
     void UpdateWaveCounter(int waveNumber)
