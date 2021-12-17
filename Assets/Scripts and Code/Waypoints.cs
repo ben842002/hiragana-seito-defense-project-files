@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Waypoints : MonoBehaviour
-{
+{   
+    // this is referenced in EnemyMovement.cs
     public static Transform[] waypoints;
 
     void Awake()
@@ -15,11 +16,5 @@ public class Waypoints : MonoBehaviour
             // assign element to a waypoint 
             waypoints[i] = transform.GetChild(i);
         }   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

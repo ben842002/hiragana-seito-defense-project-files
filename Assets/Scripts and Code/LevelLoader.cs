@@ -30,7 +30,7 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-    // special function for loading a scene from a paused game state (ex: PAUSE MENU, GAME OVER, VICTORY SCREEN)
+    // special function for loading a scene from a paused game state (Ex: PAUSE MENU, GAME OVER, VICTORY SCREEN)
     public IEnumerator LoadLevelByIndexFromPause(int levelIndex)
     {
         animator.SetTrigger("Transition");

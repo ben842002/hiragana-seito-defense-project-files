@@ -93,9 +93,6 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnState.Counting;
         waveCountdown = timeIntervalBetweenWaves;
 
-        // increment wave counter
-        UpdateWaveCounter(++wavesCount);
-
         // if the player completes the LAST wave, show victory screen
         if (waveIndex + 1 > waves.Length - 1)
         {
@@ -103,7 +100,12 @@ public class WaveSpawner : MonoBehaviour
             this.enabled = false;
         }
         else
+        {
             waveIndex++;
+
+            // increment wave counter 
+            UpdateWaveCounter(++wavesCount);
+        }
     }
 
     bool EnemyAlive()

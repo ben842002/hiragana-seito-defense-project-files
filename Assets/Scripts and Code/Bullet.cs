@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
     {
         if (enemy == null)
         {
+            Debug.Log("Destroyed");
             Destroy(gameObject);
             return;
         }
