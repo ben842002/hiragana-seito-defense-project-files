@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
-    WordManager wm;
 
     public Transform enemy;
     [SerializeField] float speed; 
@@ -14,14 +13,12 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        wm = GameMaster.gm.GetComponent<WordManager>();
     }
 
     private void FixedUpdate()
     {
         if (enemy == null)
         {
-            Debug.Log("Destroyed");
             Destroy(gameObject);
             return;
         }
@@ -35,10 +32,18 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            // hit effects
-
+            // trigger death animation once word has been typed
             if (collision.GetComponent<EnemyDead>().isDead == true)
                 collision.GetComponent<Animator>().SetBool("isDead", true);
+            else
+            {
+                // knock back enemy
+                EnemyKnockback enemyKB = collision.GetComponent<EnemyKnockback>();
+                enemyKB.knockBackTimer = enemyKB.knockBackTimerCountdown;
+                enemyKB.knockBackSourcePosition = transform.position;
+            }
+
+            // hit effects and audio
 
             Destroy(gameObject);
         }

@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
+    EnemyKnockback kb;
 
     // waypoint movement
     [SerializeField] float moveSpeed;
@@ -24,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        kb = GetComponent<EnemyKnockback>();
     }
 
     // Start is called before the first frame update
@@ -34,11 +36,18 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        Vector3 direction = (target.position - transform.position).normalized * moveSpeed;
-        rb.velocity = new Vector2(direction.x, direction.y);
-
-        FaceWaypoint();
+    {   
+        if (kb.knockBackTimer <= 0)
+        {
+            Vector3 direction = (target.position - transform.position).normalized * moveSpeed;
+            rb.velocity = new Vector2(direction.x, direction.y);
+            FaceWaypoint();
+        }
+        else
+        {
+            // knock back enemy
+            kb.Knockback(gameObject);
+        }
     }
 
     // Update is called once per frame

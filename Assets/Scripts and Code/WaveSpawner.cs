@@ -5,7 +5,7 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    // THIS SCRIPT CAN BE OPTIMIZED. DO IT
+    // THIS SCRIPT CAN BE OPTIMIZED. 
 
     // WAVE CLASS --------------------------------------------------
     [System.Serializable]
@@ -28,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
     };
 
     WordManager wordManager;
+    WordInput wordInput;
 
     [Header("Start Waves")]
     [SerializeField] bool StartWaves;
@@ -53,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
     private void Start()
     {
         wordManager = FindObjectOfType<WordManager>();
+        wordInput = FindObjectOfType<WordInput>();
 
         // initialize wave count and text
         UpdateWaveCounter(0);
@@ -143,6 +145,7 @@ public class WaveSpawner : MonoBehaviour
     public void StartWaveSpawn()
     {
         Invoke(nameof(StartBool), .25f);
+        wordInput.enabled = true;
         dialogueBoxAnim.SetBool("isOpen", false);
         UpdateWaveCounter(1);
     }
