@@ -47,7 +47,6 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     private SpawnState state = SpawnState.Counting;
 
-
     // check if all enemies are killed in scene
     private float enemyAliveCheck = 0;
 
