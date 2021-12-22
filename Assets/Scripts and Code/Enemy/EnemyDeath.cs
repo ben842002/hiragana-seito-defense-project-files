@@ -7,6 +7,11 @@ public class EnemyDeath : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        // decrement enemyCount for waveSpawner
+        WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
+        waveSpawner.enemyCount--;
+
+        // halt enemy movement
         animator.GetComponent<EnemyMovement>().enabled = false;
 
         Rigidbody2D rb = animator.GetComponent<Rigidbody2D>();

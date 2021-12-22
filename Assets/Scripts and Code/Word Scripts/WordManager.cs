@@ -67,13 +67,13 @@ public class WordManager : MonoBehaviour
     /// </summary>
     public void TypeLetter(char letter)
     {   
-        // First, check if the letter typed is for a new word OR an existing one
+        // First, check if the letter typed is an existing word OR a new word
         if (hasActiveWord == true)
         {
             // check if the input is the next letter. If so, it is CORRECT and change color to green. Remove letter from word
             if (activeWord.GetNextLetter() == letter)
             {
-                TriggerTurret();
+                TriggerTurret(activeWord);
                 activeWord.wordDisplay.wordText.color = Color.green;
                 activeWord.TypeLetter();
             }
@@ -98,7 +98,7 @@ public class WordManager : MonoBehaviour
                     activeWord.wordDisplay.GetComponentInParent<Canvas>().sortingOrder = 1;
                     
                     // change active word's color and register first letter input
-                    TriggerTurret();
+                    TriggerTurret(words[i]);
                     words[i].wordDisplay.wordText.color = Color.green;
                     words[i].TypeLetter();
 
@@ -116,14 +116,14 @@ public class WordManager : MonoBehaviour
         }
     }
 
-    void TriggerTurret()
+    void TriggerTurret(Word word)
     {   
         for (int i = 0; i < turrets.Length; i++)
         {
             turrets[i].SetTrigger("Shoot");
 
             // reference the active word's gameObject
-            Transform enemyTarget = activeWord.enemyGameObject.transform;
+            Transform enemyTarget = word.enemyGameObject.transform;
             turrets[i].GetComponentInParent<Turret>().RotateTurret(enemyTarget);
 
             // spawn bullet instance and give target gameObject

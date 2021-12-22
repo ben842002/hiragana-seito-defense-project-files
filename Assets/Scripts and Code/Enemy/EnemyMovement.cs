@@ -61,9 +61,19 @@ public class EnemyMovement : MonoBehaviour
 
     void GetNextWaypoint()
     {   
-        if (waypointIndex >= Waypoints.waypoints.Length - 1)
+        if (waypointIndex >= Waypoints.waypoints.Length - 1)   
         {
-            GameMaster.gm.RemoveLives(livesCost, gameObject);
+            // TEMPORARY FIX: bug exist where enemy's isDead is true but no bullet eventually hits it
+            if (GetComponent<EnemyDead>().isDead == false)
+            {
+                // adjust lives
+                GameMaster.gm.RemoveLives(livesCost, gameObject);
+            }
+
+            // decrement enemyCount for waveSpawner
+            WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
+            waveSpawner.enemyCount--;
+
             Destroy(gameObject);
 
             return; // destroy is somewhat of a lengthy operation in terms of PC time, so we need to avoid having code being called after

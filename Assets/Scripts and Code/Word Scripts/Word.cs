@@ -58,7 +58,7 @@ public class Word
         bool wordTyped = romajiIndex >= word.Length;
         if (wordTyped == true)
         {
-            // remove word on screen (we can't call Destroy directly because Word doesn't live in a gameObject)
+            // set EnemyDead's isDead boolean to true
             wordDisplay.RemoveWord();
         }
 

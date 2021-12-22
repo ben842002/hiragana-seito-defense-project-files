@@ -30,8 +30,7 @@ public class WordDisplay : MonoBehaviour
     /// </summary>
     public void RemoveHiragana(int numberOfHiragana)
     {   
-        if (wordText != null)
-            wordText.text = wordText.text.Remove(0, numberOfHiragana);
+        wordText.text = wordText.text.Remove(0, numberOfHiragana);
     }
 
     /// <summary>

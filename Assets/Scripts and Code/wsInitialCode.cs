@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class WaveSpawner : MonoBehaviour
+public class wsInitialCode : MonoBehaviour
 {
     // WAVE CLASS --------------------------------------------------
     [System.Serializable]
@@ -20,22 +20,19 @@ public class WaveSpawner : MonoBehaviour
         public string[] hiragana;
     }
     // -------------------------------------------------------------
+    public enum SpawnState
+    {
+        Spawning, Waiting, Counting
+    };
 
     WordManager wordManager;
     WordInput wordInput;
 
-    public enum SpawnState 
-    {
-        Spawning,   // while enemies are spawning during a wave
-        Waiting,    // while enemies are all spawned but still active in the scene
-        Counting    // brief waiting time betwwen when a new wave starts and the first enemy spawning
-    };
-
     [Header("Start Waves")]
+    [SerializeField] bool StartWaves;
     [SerializeField] Animator dialogueBoxAnim;
-    bool StartWaves;
 
-    [Header("Waves Count Text")]
+    [Header("Waves Count")]
     [SerializeField] TMP_Text wavesCountText;
     int wavesCount;
 
@@ -49,8 +46,7 @@ public class WaveSpawner : MonoBehaviour
     private SpawnState state = SpawnState.Counting;
 
     // check if all enemies are killed in scene
-    [HideInInspector]
-    public int enemyCount;
+    private float enemyAliveCheck = 0;
 
     private void Start()
     {
@@ -60,19 +56,17 @@ public class WaveSpawner : MonoBehaviour
         // initialize wave count and text
         UpdateWaveCounter(0);
 
-        // Show dialogue box to player when entering scene
         dialogueBoxAnim.SetBool("isOpen", true);
     }
 
     private void Update()
     {
         if (StartWaves == true)
-        {   
-            // Check if all enemies are cleared during a wave. If so, begin a new one
+        {
             if (state == SpawnState.Waiting)
             {
                 // check if there are enemies that are alive
-                if (enemyCount == 0)
+                if (EnemyAlive() == false)
                 {
                     // begin new round
                     BeginNewWave();
@@ -80,13 +74,7 @@ public class WaveSpawner : MonoBehaviour
                 else return;
             }
 
-            // Whenever a new wave begins, we have a brief interval of time to wait before enemies start spawning
-            if (waveCountdown > 0)
-            {
-                // decrease timer
-                waveCountdown -= Time.deltaTime;
-            }
-            else
+            if (waveCountdown <= 0)
             {
                 if (state != SpawnState.Spawning)
                 {
@@ -94,21 +82,21 @@ public class WaveSpawner : MonoBehaviour
                     StartCoroutine(SpawnWave(waves[waveIndex]));
                 }
             }
+            else
+                waveCountdown -= Time.deltaTime;
         }
     }
 
     void BeginNewWave()
     {
         state = SpawnState.Counting;
-
-        // initial waiting interval timer
         waveCountdown = timeIntervalBetweenWaves;
 
         // if the player completes the LAST wave, show victory screen
         if (waveIndex + 1 > waves.Length - 1)
         {
-            GameMaster.gm.Invoke("Victory", .5f);
-            enabled = false;    // disable script
+            GameMaster.gm.Victory();
+            this.enabled = false;
         }
         else
         {
@@ -119,12 +107,23 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    bool EnemyAlive()
+    {
+        enemyAliveCheck -= Time.deltaTime;
+        if (enemyAliveCheck <= 0)
+        {
+            enemyAliveCheck = 1f;
+            if (GameObject.FindGameObjectWithTag("Enemy") == null)
+                return false;
+        }
+
+        return true;
+    }
+
     IEnumerator SpawnWave(Wave _wave)
     {
         // update enum state to spawning
         state = SpawnState.Spawning;
-
-        enemyCount = _wave.enemyCount;
 
         // Spawn enemies on an interval (_wave.rate)
         for (int i = 0; i < _wave.enemyCount; i++)
@@ -148,9 +147,6 @@ public class WaveSpawner : MonoBehaviour
         UpdateWaveCounter(1);
     }
 
-    /// <summary>
-    /// Starts the wave sequence
-    /// </summary>
     void StartBool()
     {
         StartWaves = true;
