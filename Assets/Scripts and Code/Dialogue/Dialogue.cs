@@ -6,7 +6,6 @@ using UnityEngine;
 public class Dialogue 
 {
     public string name;
-    public string hiraganaLineText;
 
     [TextArea(3, 9)]
     public string[] dialogueSentences;

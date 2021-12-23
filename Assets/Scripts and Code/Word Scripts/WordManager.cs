@@ -5,6 +5,8 @@ public class WordManager : MonoBehaviour
 {
     WordSpawner wordSpawner;
     WordGenerator wordGenerator;
+    TokensText tokensText;
+
     [SerializeField] Animator[] turrets;
 
     [Header("Main List to store Words")]
@@ -18,6 +20,7 @@ public class WordManager : MonoBehaviour
     {
         wordSpawner = GetComponent<WordSpawner>();
         wordGenerator = GetComponent<WordGenerator>();
+        tokensText = FindObjectOfType<TokensText>();
     }
 
     public void SpawnEnemyWord(GameObject enemyPrefab, Vector2 spawnPos, string romaji, string hiragana)
@@ -110,6 +113,8 @@ public class WordManager : MonoBehaviour
         // check if player has completed in typing the active word
         if (hasActiveWord == true && activeWord.WordTyped() == true)
         {   
+            tokensText.AddTokens(activeWord.word.Length);
+
             // set active word boolean to false as the word has been completed and delete the active word from words list
             hasActiveWord = false;
             words.Remove(activeWord);

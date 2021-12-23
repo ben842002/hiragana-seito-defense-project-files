@@ -6,7 +6,6 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] TMP_Text titleText;
-    [SerializeField] TMP_Text hiraganaLineText;
     [SerializeField] TMP_Text dialogueText;
 
     // First In, First Out
@@ -16,7 +15,6 @@ public class DialogueManager : MonoBehaviour
     {
         // change default text into given text
         titleText.text = dialogue.name;
-        hiraganaLineText.text = dialogue.hiraganaLineText;
 
         // clears dialogue box if there was any previous sentences
         sentences.Clear();

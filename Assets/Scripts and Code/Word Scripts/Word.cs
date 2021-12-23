@@ -25,11 +25,11 @@ public class Word
     [HideInInspector] public WordDisplay wordDisplay;
 
     /// <summary>
-    /// Constructor (initializer) 1.) Sets word variable to romaji (1st parameter) and will be the word that the
-    /// player actually types. 2.) Sets wordDisplay variable to _display (3rd parameter)
+    /// Constructor (initializer) 
+    /// 1.) Sets word variable to romaji (1st parameter) and will be the word that the player actually types. 
+    /// 2.) Sets wordDisplay variable to _display (3rd parameter)
     /// 3.) Passes in hiragana (2nd parameter) into wordDisplay to display the hiragana word on screen
-    /// 4.) Stores wordDisplay's parent gameObject into a variable called enemyGameObject. This will be used when a bullet spawns so that it
-    /// can travel to the right target.
+    /// 4.) Stores wordDisplay's parent gameObject into a variable called enemyGameObject. This will be used when a bullet spawns so that it can travel to the right target.
     /// </summary>
     public Word(string romaji, string hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject)
     {

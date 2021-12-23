@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
 
-    [Header("Lives")]   // might have to move current lives to GameMaster 
+    [Header("Score")]
+    public int tokens;
+
+    [Header("Lives")] 
     public int maxLives;
     [SerializeField] int _currentLives;
     public int currentLives // lives are initialized in Player.cs
