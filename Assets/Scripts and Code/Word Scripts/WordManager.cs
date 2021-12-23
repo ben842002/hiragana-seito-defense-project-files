@@ -93,12 +93,12 @@ public class WordManager : MonoBehaviour
                     // set the matching word as the new active word;
                     activeWord = words[i];
                     hasActiveWord = true;
+                    TriggerTurret(activeWord);
 
                     // set word's canvas object sorting layer higher as its the important word
                     activeWord.wordDisplay.GetComponentInParent<Canvas>().sortingOrder = 1;
                     
                     // change active word's color and register first letter input
-                    TriggerTurret(words[i]);
                     words[i].wordDisplay.wordText.color = Color.green;
                     words[i].TypeLetter();
 

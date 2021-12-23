@@ -23,10 +23,26 @@ public class AudioManager : MonoBehaviour
 
             // copy the settings to the added AudioSource component
             AudioSource audioS = sounds[i].audioSource;
+            audioS.clip = sounds[i].audioClip;
             audioS.volume = sounds[i].volume;
             audioS.pitch = sounds[i].pitch;
             audioS.outputAudioMixerGroup = sounds[i].audioMixerGroup;
             audioS.loop = sounds[i].loop;
         }
+    }
+
+    public void Play(string name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            Debug.Log(sounds[i].name);
+            if (sounds[i].name == name)
+            {
+                sounds[i].audioSource.Play();
+                return;
+            }        
+        }
+
+        Debug.LogWarning("Sound not found!");
     }
 }

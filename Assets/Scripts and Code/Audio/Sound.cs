@@ -14,7 +14,9 @@ public class Sound
     [Range(-3, 3)]
     public float pitch;
 
+    public AudioClip audioClip;
     public AudioMixerGroup audioMixerGroup;
+
     public bool loop;
 
     [HideInInspector] public AudioSource audioSource;
