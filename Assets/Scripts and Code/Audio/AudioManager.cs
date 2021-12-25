@@ -36,7 +36,6 @@ public class AudioManager : MonoBehaviour
         // Loop through the sounds list to find if parameter name matches with any
         for (int i = 0; i < sounds.Length; i++)
         {
-            Debug.Log(sounds[i].name);
             if (sounds[i].name == name)
             {
                 sounds[i].audioSource.Play();

@@ -19,5 +19,6 @@ public class Sound
 
     public bool loop;
 
+    // instance is set in the Awake() function in AudioManager.cs
     [HideInInspector] public AudioSource audioSource;
 }
