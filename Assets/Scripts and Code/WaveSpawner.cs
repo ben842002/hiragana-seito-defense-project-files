@@ -43,7 +43,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float timeIntervalBetweenWaves;
     private float waveCountdown;
 
-    [SerializeField] Wave[] waves;
+    public Wave[] waves;
 
     private int waveIndex = 0;
     private SpawnState state = SpawnState.Counting;

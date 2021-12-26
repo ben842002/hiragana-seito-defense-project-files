@@ -23,4 +23,9 @@ public class GameOverUI : MonoBehaviour
         Debug.Log("You quit");
         Application.Quit();
     }
+
+    public void ReturnToLevelSelection()
+    {
+        StartCoroutine(LevelLoader.instance.LoadLevelByIndex(1));
+    }
 }

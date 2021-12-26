@@ -6,8 +6,7 @@ public class WordInput : MonoBehaviour
 {
     WordManager wordManager;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         wordManager = GetComponent<WordManager>();
     }
@@ -24,6 +23,7 @@ public class WordInput : MonoBehaviour
         //    char letter = frameInput[i];
         //    wordManager.TypeLetter(letter);
         //}
+
 
         string frameInput = Input.inputString;
         if (frameInput.Length != 0)

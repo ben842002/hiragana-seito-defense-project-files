@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.1}
-  m_SizeDelta: {x: 416.561, y: 62.7665}
+  m_SizeDelta: {x: 521.751, y: 103.2242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7162921416623225760
 Canvas:
@@ -193,8 +193,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -249,8 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wordText: {fileID: 7162921416705110259}
   enemyWord:
-    word: 
+    romajiWord: 
     enemyGameObject: {fileID: 0}
+    hiraganaLength: 0
     wordDisplay: {fileID: 0}
   enemyParentGameObject: {fileID: 7162921417046698495}
 --- !u!1 &7162921417046698495

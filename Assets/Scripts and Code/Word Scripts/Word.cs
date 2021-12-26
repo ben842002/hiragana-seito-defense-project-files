@@ -7,10 +7,7 @@ using System.Linq;
 public class Word
 {
     // contains the actual word in ROMAJI
-    public string word;
-
-    // store gameobject so turrets correctly shoot at target when typing
-    public GameObject enemyGameObject;
+    public string romajiWord;
 
     // int index to keep track of typing (basically what position we are at in a word)
     private int romajiIndex;
@@ -20,6 +17,14 @@ public class Word
 
     // this array is used in grammar special case 1
     readonly char[] letters = { 'a', 'i', 'u', 'e', 'o', 'y' };
+
+    // -----------------------------------------------------------------------------
+
+    // store gameObject so turrets correctly shoot at target when typing
+    public GameObject enemyGameObject;
+
+    // store the size of the hiragana string. This value is used when adding tokens after an enemy has been killed
+    [HideInInspector] public int hiraganaLength;
 
     // shows the word on screen (reason why its public is that we access this in TypeLetter() in WordManager
     [HideInInspector] public WordDisplay wordDisplay;
@@ -31,15 +36,16 @@ public class Word
     /// 3.) Passes in hiragana (2nd parameter) into wordDisplay to display the hiragana word on screen
     /// 4.) Stores wordDisplay's parent gameObject into a variable called enemyGameObject. This will be used when a bullet spawns so that it can travel to the right target.
     /// </summary>
-    public Word(string romaji, string hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject)
+    public Word(string _romaji, string _hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject)
     {
-        word = romaji;
+        romajiWord = _romaji;
         romajiIndex = 0;
+        hiraganaLength = _hiragana.Length;
         enemyGameObject = wordDisplayParentGameObject;
 
-        // assign wordDisplay and then display hiragana on screen
+        // assign wordDisplay and then use wordDisplay to display hiragana on screen 
         wordDisplay = _display;
-        wordDisplay.SetWord(hiragana);
+        wordDisplay.SetWord(_hiragana);
     }
 
     /// <summary>
@@ -47,7 +53,7 @@ public class Word
     /// </summary>
     public char GetNextLetter()
     {
-        return word[romajiIndex];
+        return romajiWord[romajiIndex];
     }
 
     /// <summary>
@@ -55,7 +61,7 @@ public class Word
     /// </summary>
     public bool WordTyped()
     {
-        bool wordTyped = romajiIndex >= word.Length;
+        bool wordTyped = romajiIndex >= romajiWord.Length;
         if (wordTyped == true)
         {
             // set EnemyDead's isDead boolean to true
@@ -71,22 +77,22 @@ public class Word
     public void TypeLetter()
     {   
         // store romaji that was typed into a temporary string list
-        romajiTyped += word[romajiIndex];
+        romajiTyped += romajiWord[romajiIndex];
 
         // move to the next character in the romaji
         romajiIndex++;
 
         // Special Cases
-        if (romajiIndex < word.Length)
+        if (romajiIndex < romajiWord.Length)
         {
             // GRAMMAR SPECIAL CASE 1: Differentiate NA line and N. 
             // Check if there is even an N and check if its in the NA line or NYA line
-            if (romajiTyped == "n" && letters.Contains(word[romajiIndex]))
+            if (romajiTyped == "n" && letters.Contains(romajiWord[romajiIndex]))
                 return;
 
             // GRAMMAR SPECIAL CASE 2: Double Consonant (Example: TEKKEN)
             // Check if the next letter is the same as the current letter that was just typed
-            if (word[romajiIndex] == word[romajiIndex - 1])
+            if (romajiWord[romajiIndex] == romajiWord[romajiIndex - 1])
                 RemoveHiragana(1);
         }
 
@@ -102,6 +108,8 @@ public class Word
 
         // make the string empty once a particular hiragana is detected (switch cases wont work if you dont)
         romajiTyped = string.Empty;
+
+        Object.FindObjectOfType<WordManager>().TriggerTurret(this);
     }
 
     // LINK TO HIRAGANA TABLE: https://prnt.sc/1vroxag  

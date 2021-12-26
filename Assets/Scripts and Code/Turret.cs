@@ -10,6 +10,15 @@ public class Turret : MonoBehaviour
     [Header("Turret Cannon")]
     [SerializeField] Transform partToRotate;
 
+    private void Start()
+    {
+        // make turret initially aim at an entrance
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
+        int randomindex = Random.Range(0, spawnPoints.Length);
+        RotateTurret(spawnPoints[randomindex].transform);
+    }
+
     public void RotateTurret(Transform enemy)
     {   
         Vector2 direction = (enemy.position - transform.position).normalized;
