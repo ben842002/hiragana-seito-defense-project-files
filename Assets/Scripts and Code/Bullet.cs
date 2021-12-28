@@ -6,8 +6,9 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public Transform enemy;
-    [SerializeField] float speed; 
+    [HideInInspector] public Transform enemy;
+    [SerializeField] float speed;
+    [SerializeField] GameObject particleEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,8 @@ public class Bullet : MonoBehaviour
             }
 
             // hit effects and audio
+            GameObject hitEffect = Instantiate(particleEffect, collision.transform.position, Quaternion.identity);
+            Destroy(hitEffect, 0.5f);
 
             Destroy(gameObject);
         }

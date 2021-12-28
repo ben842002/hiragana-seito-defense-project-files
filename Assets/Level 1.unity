@@ -8533,8 +8533,9 @@ MonoBehaviour:
   words: []
   hasActiveWord: 0
   activeWord:
-    word: 
+    romajiWord: 
     enemyGameObject: {fileID: 0}
+    hiraganaLength: 0
     wordDisplay: {fileID: 0}
 --- !u!1 &322090306
 GameObject:
@@ -11348,7 +11349,7 @@ MonoBehaviour:
   - {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   - {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
   - {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-  camIntensity: 2.5
+  camIntensity: 3
   camTime: 0.2
   gameOverUI: {fileID: 1133522218}
   victoryUI: {fileID: 41670423}
@@ -11390,7 +11391,6 @@ MonoBehaviour:
   waves:
   - spawnPositions:
     - {fileID: 876201675}
-    enemyCount: 5
     rate: 2
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
@@ -11408,7 +11408,6 @@ MonoBehaviour:
     - "\u304A"
   - spawnPositions:
     - {fileID: 876201675}
-    enemyCount: 5
     rate: 1.75
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
@@ -11426,7 +11425,6 @@ MonoBehaviour:
     - "\u3044"
   - spawnPositions:
     - {fileID: 876201675}
-    enemyCount: 11
     rate: 1.5
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
@@ -11456,7 +11454,6 @@ MonoBehaviour:
     - "\u3046"
   - spawnPositions:
     - {fileID: 876201675}
-    enemyCount: 5
     rate: 1.25
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
@@ -17056,7 +17053,6 @@ GameObject:
   - component: {fileID: 1345498689}
   - component: {fileID: 1345498688}
   - component: {fileID: 1345498691}
-  - component: {fileID: 1345498690}
   m_Layer: 5
   m_Name: Tokens Collected Counter
   m_TagString: Untagged
@@ -17180,18 +17176,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345498686}
   m_CullTransparentMesh: 1
---- !u!114 &1345498690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345498686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e12b1397f535303468037d7b8ccd1aae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1345498691
 MonoBehaviour:
   m_ObjectHideFlags: 0

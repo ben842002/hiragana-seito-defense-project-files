@@ -12413,7 +12413,7 @@ MonoBehaviour:
   - {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
   - {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
   - {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
-  camIntensity: 2.5
+  camIntensity: 3
   camTime: 0.2
   gameOverUI: {fileID: 1133522218}
   victoryUI: {fileID: 1411112441}

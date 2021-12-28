@@ -11,7 +11,6 @@ public class WaveSpawner : MonoBehaviour
     {
         public Transform[] spawnPositions;
 
-        public int enemyCount;
         public float rate;
 
         [Header("Words: Make sure array sizes are identical")]
@@ -30,6 +29,9 @@ public class WaveSpawner : MonoBehaviour
         Waiting,    // while enemies are all spawned but still active in the scene
         Counting    // brief waiting time betwwen when a new wave starts and the first enemy spawning
     };
+
+    [Header("Victory Screen Popup Delay")]
+    float victoryPopupDelay = 1f;
 
     [Header("Start Waves")]
     [SerializeField] Animator dialogueBoxAnim;
@@ -107,7 +109,7 @@ public class WaveSpawner : MonoBehaviour
         // if the player completes the LAST wave, show victory screen
         if (waveIndex + 1 > waves.Length - 1)
         {
-            GameMaster.gm.Invoke("Victory", .5f);
+            GameMaster.gm.Invoke("Victory", victoryPopupDelay);
             enabled = false;    // disable script
         }
         else
@@ -124,10 +126,11 @@ public class WaveSpawner : MonoBehaviour
         // update enum state to spawning
         state = SpawnState.Spawning;
 
-        enemyCount = _wave.enemyCount;
+        // hiragana.Length and romaji.Length will always be the same which means you can use either or
+        enemyCount = _wave.hiragana.Length;
 
         // Spawn enemies on an interval (_wave.rate)
-        for (int i = 0; i < _wave.enemyCount; i++)
+        for (int i = 0; i < _wave.hiragana.Length; i++)
         {
             int randomPrefabIndex = Random.Range(0, _wave.enemyPrefab.Length);
             int randomIndex = Random.Range(0, _wave.spawnPositions.Length);
