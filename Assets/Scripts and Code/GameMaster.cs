@@ -41,6 +41,8 @@ public class GameMaster : MonoBehaviour
 
         // instantiate lives
         stats.currentLives = stats.maxLives;
+
+        stats.tokens = 0;
     }
 
     // victory screen that is shown once player beats all levels

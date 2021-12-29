@@ -26,6 +26,7 @@ public class GameOverUI : MonoBehaviour
 
     public void ReturnToLevelSelection()
     {
-        StartCoroutine(LevelLoader.instance.LoadLevelByIndex(1));
+        LoadLevelSelection.instance.loadLevelSelection = true;
+        StartCoroutine(LevelLoader.instance.LoadLevelByIndexFromPause(0));
     }
 }
