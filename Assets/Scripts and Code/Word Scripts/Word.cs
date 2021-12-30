@@ -64,7 +64,6 @@ public class Word
         bool wordTyped = romajiIndex >= romajiWord.Length;
         if (wordTyped == true)
         {
-            // set EnemyDead's isDead boolean to true
             wordDisplay.RemoveWord();
         }
 
@@ -102,14 +101,21 @@ public class Word
 
     // Function is called in HiraganaCheck
     void RemoveHiragana(int numberOfHiragana)
-    {
+    {   
+        // only shoot when we haven't completed a word (there is a bug where a bullet spawns and goes to the wrong target)
+        if (WordTyped() == false)
+        {   
+            // find WordManager script and trigger turret
+            WordManager wm = Object.FindObjectOfType<WordManager>();
+            wm.TriggerTurret(enemyGameObject);
+        }
+
         // Some hiragana characters translate into more than 1 romaji. TSU for example
         wordDisplay.RemoveHiragana(numberOfHiragana);
 
         // make the string empty once a particular hiragana is detected (switch cases wont work if you dont)
         romajiTyped = string.Empty;
 
-        Object.FindObjectOfType<WordManager>().TriggerTurret(this);
     }
 
     // LINK TO HIRAGANA TABLE: https://prnt.sc/1vroxag  

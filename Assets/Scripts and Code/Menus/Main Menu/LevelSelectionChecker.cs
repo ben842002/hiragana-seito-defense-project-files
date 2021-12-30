@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class LevelSelectionChecker : MonoBehaviour
 {
-    // The purpose of this script is to check whether we are loading the Level Selection initially 
+    // The purpose of this script is to check whether we are loading the Level Selection initially
 
     [Header("Cinemachine Cameras")]
     [SerializeField] CinemachineVirtualCamera mainCamera;
@@ -16,7 +17,7 @@ public class LevelSelectionChecker : MonoBehaviour
     [SerializeField] GameObject levelSelectionMenu;
 
     // Start is called before the first frame update
-    void OnLevelWasLoaded()
+    void Start()
     {
         if (LoadLevelSelection.instance.loadLevelSelection == true)
         {

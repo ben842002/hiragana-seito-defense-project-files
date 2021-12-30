@@ -30,25 +30,35 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
+    {   
+        if (collision.gameObject.transform == enemy)
         {
-            // trigger death animation once word has been typed
-            if (collision.GetComponent<EnemyDead>().isDead == true)
-                collision.GetComponent<Animator>().SetBool("isDead", true);
-            else
+            if (collision.CompareTag("Enemy"))
             {
                 // knock back enemy
                 EnemyKnockback enemyKB = collision.GetComponent<EnemyKnockback>();
                 enemyKB.knockBackTimer = enemyKB.knockBackTimerCountdown;
                 enemyKB.knockBackSourcePosition = transform.position;
+
+                HitEffect(collision);
+
+                Destroy(gameObject);
             }
+            // enemy death animation gameObject
+            else if (collision.CompareTag("EnemyDeath"))
+            {
+                collision.GetComponent<Animator>().SetBool("BulletHit", true);
+                HitEffect(collision);
 
-            // hit effects and audio
-            GameObject hitEffect = Instantiate(particleEffect, collision.transform.position, Quaternion.identity);
-            Destroy(hitEffect, 0.5f);
-
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
+    }
+
+    void HitEffect(Collider2D collision)
+    {
+        // hit effects and audio
+        GameObject hitEffect = Instantiate(particleEffect, collision.transform.position, Quaternion.identity);
+        Destroy(hitEffect, 0.5f);
     }
 }

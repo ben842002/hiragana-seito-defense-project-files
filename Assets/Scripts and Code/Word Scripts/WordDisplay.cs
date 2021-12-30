@@ -13,7 +13,8 @@ public class WordDisplay : MonoBehaviour
     // This is used in GameMaster.cs. It checks whether word is the active word when an enemy reaches the end.
     public Word enemyWord;
 
-    [SerializeField] GameObject enemyParentGameObject;
+    public GameObject enemyParentGameObject;
+    [SerializeField] GameObject enemyDeathPrefab;
 
     /// <summary>
     /// Displays a word on screen by accessing Text component from WordDisplay prefab 
@@ -34,10 +35,10 @@ public class WordDisplay : MonoBehaviour
     }
 
     /// <summary>
-    /// Destroys the gameObject that is holding the finished word
+    /// Destroys the gameObject that is holding the finished word. Death animation gameObject spawn code is located in WordManager.cs
     /// </summary>
     public void RemoveWord()
     {
-        enemyParentGameObject.GetComponent<EnemyDead>().isDead = true;
+        Destroy(enemyParentGameObject);
     }
 }

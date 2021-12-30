@@ -6,6 +6,8 @@ public class WordManager : MonoBehaviour
     WordSpawner wordSpawner;
     TokensText tokensText;
 
+    public GameObject enemyDeathPrefab;
+
     [Header("Turret Animators")]
     [SerializeField] Animator[] turrets;
     int turretIndex = 0;    // determines what turret in the scene will shoot
@@ -88,25 +90,34 @@ public class WordManager : MonoBehaviour
         // check if player has completed in typing the active word
         if (hasActiveWord == true && activeWord.WordTyped() == true)
         {   
+            // spawn enemy death animation
+            GameObject enemyDeath = Instantiate(enemyDeathPrefab, activeWord.enemyGameObject.transform.position, Quaternion.identity);        
+            TriggerTurret(enemyDeath);
+
             // add tokens
             tokensText.AddTokens(activeWord.hiraganaLength);
+
+            // decrement enemyCount for waveSpawner
+            WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
+            waveSpawner.enemyCount--;
 
             // set active word boolean to false as the word has been completed and delete the active word from words list
             hasActiveWord = false;
             words.Remove(activeWord);
+
         }
     }
 
     /// <summary>
     /// Makes a turret shoot a bullet after a hiragana has been removed
     /// </summary>
-    /// <param name="word"></param>
-    public void TriggerTurret(Word word)
+    public void TriggerTurret(GameObject enemyGameObject)
     {
         turrets[turretIndex].SetTrigger("Shoot");
+        print(turretIndex);
 
         // reference the active word's gameObject
-        Transform enemyTarget = word.enemyGameObject.transform;
+        Transform enemyTarget = enemyGameObject.transform;
         turrets[turretIndex].GetComponentInParent<Turret>().RotateTurret(enemyTarget);
 
         // spawn bullet instance and give target gameObject

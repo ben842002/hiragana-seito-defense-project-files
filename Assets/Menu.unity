@@ -13592,6 +13592,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &254129939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9085096944441267628, guid: 471a895c6596a354f86dc90678435126, type: 3}
+  m_PrefabInstance: {fileID: 1775309300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &256423099
 GameObject:
   m_ObjectHideFlags: 0
@@ -14692,6 +14703,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559151303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9085096944441267628, guid: 471a895c6596a354f86dc90678435126, type: 3}
+  m_PrefabInstance: {fileID: 9085096944115511680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &563130652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24244,7 +24266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1011353500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24624,6 +24646,7 @@ GameObject:
   - component: {fileID: 1116125019}
   - component: {fileID: 1116125021}
   - component: {fileID: 1116125020}
+  - component: {fileID: 1116125022}
   m_Layer: 5
   m_Name: Levels
   m_TagString: Untagged
@@ -24690,6 +24713,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116125018}
   m_CullTransparentMesh: 1
+--- !u!114 &1116125022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116125018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6030455b4f73b94188b9b8f5f43815d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelButtons:
+  - {fileID: 559151303}
+  - {fileID: 254129939}
 --- !u!1 &1125178863
 GameObject:
   m_ObjectHideFlags: 0
@@ -28248,6 +28286,22 @@ PrefabInstance:
     - target: {fileID: 9085096944441267628, guid: 471a895c6596a354f86dc90678435126, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085096944441267629, guid: 471a895c6596a354f86dc90678435126, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085096944441267629, guid: 471a895c6596a354f86dc90678435126, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085096944441267629, guid: 471a895c6596a354f86dc90678435126, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085096944441267629, guid: 471a895c6596a354f86dc90678435126, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9085096945395850136, guid: 471a895c6596a354f86dc90678435126, type: 3}
       propertyPath: m_text

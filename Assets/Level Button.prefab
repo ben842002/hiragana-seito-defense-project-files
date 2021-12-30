@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9085096944441267630}
   - component: {fileID: 9085096944441267629}
   - component: {fileID: 9085096944441267628}
+  - component: {fileID: 148240185009427409}
   m_Layer: 5
   m_Name: Level Button
   m_TagString: Untagged
@@ -133,6 +134,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &148240185009427409
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085096944441267626}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a43194055e29284bb9a14e2a990f14d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9085096945395850134
 GameObject:
   m_ObjectHideFlags: 0

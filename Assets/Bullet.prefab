@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  speed: 15
+  speed: 25
   particleEffect: {fileID: 2162989420616589181, guid: f29503af8164e014ab2a28f70fb85ba5, type: 3}
 --- !u!50 &-7787785706023937563
 Rigidbody2D:
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &-3466077507858871499
 CircleCollider2D:

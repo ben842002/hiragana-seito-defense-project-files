@@ -254,6 +254,7 @@ MonoBehaviour:
     hiraganaLength: 0
     wordDisplay: {fileID: 0}
   enemyParentGameObject: {fileID: 7162921417046698495}
+  enemyDeathPrefab: {fileID: 5695112628659073873, guid: 606365e177c3a7f4989d37ce23cb98d6, type: 3}
 --- !u!1 &7162921417046698495
 GameObject:
   m_ObjectHideFlags: 0
