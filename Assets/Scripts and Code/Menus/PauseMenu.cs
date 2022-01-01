@@ -88,4 +88,9 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
+
+    public void ButtonHover()
+    {
+        GlobalAudioManager.instance.Play("Button Hover");
+    }
 }

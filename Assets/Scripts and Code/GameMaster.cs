@@ -71,9 +71,8 @@ public class GameMaster : MonoBehaviour
         if (finishedLevel == 0)
         {
             // allow player to play next level
-            int levelValue = PlayerPrefs.GetInt("levelReached");
+            int levelValue = PlayerPrefs.GetInt("levelReached", 1);
             levelValue++;
-            print(levelValue);
             PlayerPrefs.SetInt("levelReached", levelValue);
 
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);

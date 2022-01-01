@@ -10,12 +10,13 @@ public class ButtonFader : MonoBehaviour
     [Header("Level Buttons")]
     [SerializeField] Button[] levelButtons;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Show available and locked levels
         for (int i = 0; i < levelButtons.Length; i++)
-        {
+        {   
+            // when player loads up for the first time, return a value of 1 (makes first level playable)
+            // Note: Default value parameter for a PlayerPref does not set the PlayerPref to that value. It just returns the value to the local int
             int levelReached = PlayerPrefs.GetInt("levelReached", 1);
 
             if (i + 1 > levelReached)

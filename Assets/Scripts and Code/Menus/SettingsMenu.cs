@@ -15,9 +15,6 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public Slider slider;
 
-    [Header("Quality")]
-    public Dropdown qualityDropdown;
-
     [Header("Resolution")]
     public TMP_Dropdown resolutionDropdown;
 

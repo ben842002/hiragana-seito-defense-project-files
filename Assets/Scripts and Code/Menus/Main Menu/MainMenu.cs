@@ -20,6 +20,16 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void HoverSound()
+    {
+        GlobalAudioManager.instance.Play("Button Hover");
+    }
+
+    public void ClickSound()
+    {
+        GlobalAudioManager.instance.Play("Button Click");
+    }
+
     // -------------------------------------------------------------------
     // Transitions
     public void TransitionCinemachineCamera(CinemachineVirtualCamera otherCamera)
@@ -35,5 +45,10 @@ public class MainMenu : MonoBehaviour
     public void Fade(Animator animator)
     {
         animator.SetTrigger("Fade");
+    }
+
+    public void DeleteSave()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

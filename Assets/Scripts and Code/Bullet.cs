@@ -39,24 +39,22 @@ public class Bullet : MonoBehaviour
                 EnemyKnockback enemyKB = collision.GetComponent<EnemyKnockback>();
                 enemyKB.knockBackTimer = enemyKB.knockBackTimerCountdown;
                 enemyKB.knockBackSourcePosition = transform.position;
-
-                HitEffect(collision);
-
-                Destroy(gameObject);
+                GlobalAudioManager.instance.Play("Enemy Hit");
             }
             // enemy death animation gameObject
             else if (collision.CompareTag("EnemyDeath"))
             {
                 collision.GetComponent<Animator>().SetBool("BulletHit", true);
-                HitEffect(collision);
-
-                Destroy(gameObject);
+                GlobalAudioManager.instance.Play("Enemy Death");
             }
+
+            HitEffect(collision);
+            Destroy(gameObject);
         }
     }
 
     void HitEffect(Collider2D collision)
-    {
+    {   
         // hit effects and audio
         GameObject hitEffect = Instantiate(particleEffect, collision.transform.position, Quaternion.identity);
         Destroy(hitEffect, 0.5f);

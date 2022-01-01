@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {   
+    // Note: VictoryUI also uses this script because I didn't realize at the time that they would share the same button functionalities
     // These functions are called via clicking on a certain button
 
     public void Restart()
@@ -28,5 +29,10 @@ public class GameOverUI : MonoBehaviour
     {
         LoadLevelSelection.instance.loadLevelSelection = true;
         StartCoroutine(LevelLoader.instance.LoadLevelByIndexFromPause(0));
+    }
+
+    public void HoverSound()
+    {
+        GlobalAudioManager.instance.Play("Button Hover");
     }
 }

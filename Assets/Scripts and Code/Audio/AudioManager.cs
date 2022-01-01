@@ -31,6 +31,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Plays the audio sound if found in the Sounds array.
+    /// </summary>
     public void Play(string name)
     {   
         // Loop through the sounds list to find if parameter name matches with any
@@ -41,6 +44,25 @@ public class AudioManager : MonoBehaviour
                 sounds[i].audioSource.Play();
                 return;
             }        
+        }
+
+        // In case sound was not found
+        Debug.LogWarning("Sound not found!");
+    }
+
+    /// <summary>
+    /// Stops the audio sound if found in the Sounds array.
+    /// </summary>
+    public void Stop(string name)
+    {
+        // Loop through the sounds list to find if parameter name matches with any
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == name)
+            {
+                sounds[i].audioSource.Stop();
+                return;
+            }
         }
 
         // In case sound was not found

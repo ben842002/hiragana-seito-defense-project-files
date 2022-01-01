@@ -132,9 +132,17 @@ public class WaveSpawner : MonoBehaviour
         // Spawn enemies on an interval (_wave.rate)
         for (int i = 0; i < _wave.hiragana.Length; i++)
         {
-            int randomPrefabIndex = Random.Range(0, _wave.enemyPrefab.Length);
+            // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn enemy with the prefab that is
+            // the corresponding index value
+            int prefabIndex = 0;
+            if (_wave.enemyPrefab.Length != 1)
+                prefabIndex = i;
+
+            // generate random index for the spawn point of the enemy
             int randomIndex = Random.Range(0, _wave.spawnPositions.Length);
-            wordManager.SpawnEnemyWord(_wave.enemyPrefab[randomPrefabIndex], _wave.spawnPositions[randomIndex].position, _wave.romaji[i], _wave.hiragana[i]);
+
+            // spawn enemy at a location with its word
+            wordManager.SpawnEnemyWord(_wave.enemyPrefab[prefabIndex], _wave.spawnPositions[randomIndex].position, _wave.romaji[i], _wave.hiragana[i]);
             yield return new WaitForSeconds(_wave.rate);
         }
 

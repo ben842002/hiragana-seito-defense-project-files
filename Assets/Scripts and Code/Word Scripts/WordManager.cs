@@ -112,9 +112,10 @@ public class WordManager : MonoBehaviour
     /// Makes a turret shoot a bullet after a hiragana has been removed
     /// </summary>
     public void TriggerTurret(GameObject enemyGameObject)
-    {
+    {   
+        // trigger turret animation and play sound effect
         turrets[turretIndex].SetTrigger("Shoot");
-        print(turretIndex);
+        GlobalAudioManager.instance.Play("Turret Shoot");
 
         // reference the active word's gameObject
         Transform enemyTarget = enemyGameObject.transform;
