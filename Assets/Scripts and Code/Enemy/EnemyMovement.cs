@@ -9,8 +9,10 @@ public class EnemyMovement : MonoBehaviour
     SpriteRenderer sr;
     EnemyKnockback kb;
 
+    [HideInInspector] public Waypoints wayP;
+
     // waypoint movement
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
     private Transform target;
     private int waypointIndex = 0;
 
@@ -32,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {   
         // first waypoint
-        target = Waypoints.waypoints[0];
+        target = wayP.waypoints[0];
     }
 
     private void FixedUpdate()
@@ -61,14 +63,10 @@ public class EnemyMovement : MonoBehaviour
 
     void GetNextWaypoint()
     {   
-        if (waypointIndex >= Waypoints.waypoints.Length - 1)   
+        if (waypointIndex >= wayP.waypoints.Length - 1)   
         {
-            // TEMPORARY FIX: bug exist where enemy's isDead is true but no bullet eventually hits it
-            if (GetComponent<EnemyDead>().isDead == false)
-            {
-                // adjust lives
-                GameMaster.gm.RemoveLives(livesCost, gameObject);
-            }
+            // adjust lives
+            GameMaster.gm.RemoveLives(livesCost, gameObject);
 
             // decrement enemyCount for waveSpawner
             WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
@@ -80,7 +78,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         waypointIndex++;
-        target = Waypoints.waypoints[waypointIndex];
+        target = wayP.waypoints[waypointIndex];
     }
 
     /// <summary>

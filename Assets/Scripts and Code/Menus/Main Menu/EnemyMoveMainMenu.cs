@@ -11,6 +11,8 @@ public class EnemyMoveMainMenu : MonoBehaviour
     Rigidbody2D rb;
     TMP_Text hiraganaText;
 
+    [SerializeField] Waypoints wayP;
+
     [SerializeField] Transform startPoint;
     [SerializeField] string[] hiragana;
     int hiraganaIndex = 0;
@@ -39,7 +41,7 @@ public class EnemyMoveMainMenu : MonoBehaviour
         transform.position = startPoint.position;
 
         // first waypoint
-        target = Waypoints.waypoints[0];
+        target = wayP.waypoints[0];
 
         // set to random hiragana word
         hiraganaIndex = Random.Range(0, hiragana.Length);
@@ -66,11 +68,11 @@ public class EnemyMoveMainMenu : MonoBehaviour
     {   
         // When enemy reaches last waypoint, reset position and repeat movement cycle but change hiragana word.
         // This basically gives an illusion that a new enemy has spawned
-        if (waypointIndex >= Waypoints.waypoints.Length - 1)
+        if (waypointIndex >= wayP.waypoints.Length - 1)
         {   
             // reset position to starting point and repeat waypoint movement
             transform.position = startPoint.position;
-            target = Waypoints.waypoints[0];
+            target = wayP.waypoints[0];
             waypointIndex = 0;
 
             // display next hiragana text. If the end is reached, loop back to first element
@@ -85,7 +87,7 @@ public class EnemyMoveMainMenu : MonoBehaviour
         }
 
         waypointIndex++;
-        target = Waypoints.waypoints[waypointIndex];
+        target = wayP.waypoints[waypointIndex];
     }
 
     /// <summary>

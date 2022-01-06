@@ -26,6 +26,9 @@ public class GameMaster : MonoBehaviour
 
     int finishedLevel;
 
+    [Header("Reset Level PlayerPrefs")]
+    [SerializeField] bool resetLevelPlayerPrefs;
+
     private void Awake()
     {
         if (gm == null)
@@ -34,6 +37,14 @@ public class GameMaster : MonoBehaviour
 
     private void Start()
     {
+        // TO RESET PLAYERPREFS for this particular level
+        if (resetLevelPlayerPrefs == true)
+        {
+            PlayerPrefs.SetInt("levelReached", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 0);
+        }
+        // -------------------------------------------------------------
+
         stats = PlayerStats.instance;
 
         // make font pixel perfect
@@ -53,19 +64,14 @@ public class GameMaster : MonoBehaviour
         stats.currentLives = stats.maxLives;
 
         // reset tokens every level (PlayerStats is DontDestroyOnLoad)
-        stats.tokens = 0;
-
-
-        // TO RESET PLAYERPREFS for this particular level
-        //PlayerPrefs.SetInt("levelReached", 1);
-        //PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 0);
+        stats.tokensPerLevel = 0;
     }
 
     // victory screen that is shown once player beats all levels
     public void Victory()
     {
-        // audio effect here
         victoryUI.SetActive(true);
+        GlobalAudioManager.instance.Play("Victory");
 
         // only increase levelValue when player finishes the level for the first time
         if (finishedLevel == 0)
@@ -109,6 +115,7 @@ public class GameMaster : MonoBehaviour
         PauseMenu.Pause();
         gameOverUI.SetActive(true);
 
-        // add audio here
+        // sound effect
+        GlobalAudioManager.instance.Play("Game Over");
     }   
 }

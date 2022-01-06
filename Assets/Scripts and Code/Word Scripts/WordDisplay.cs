@@ -39,6 +39,10 @@ public class WordDisplay : MonoBehaviour
     /// </summary>
     public void RemoveWord()
     {
+        WordManager wm = FindObjectOfType<WordManager>();
+        wm.enemyDeathPrefab = enemyDeathPrefab;
+        wm.isFlipped = GetComponentInParent<SpriteRenderer>().flipX;
+
         Destroy(enemyParentGameObject);
     }
 }

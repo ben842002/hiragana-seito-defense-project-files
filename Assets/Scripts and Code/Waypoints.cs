@@ -5,7 +5,7 @@ using UnityEngine;
 public class Waypoints : MonoBehaviour
 {   
     // this is referenced in EnemyMovement.cs
-    public static Transform[] waypoints;
+    public Transform[] waypoints;
 
     void Awake()
     {

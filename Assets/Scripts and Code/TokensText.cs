@@ -15,7 +15,7 @@ public class TokensText : MonoBehaviour
 
     public void AddTokens(int addAmount)
     {
-        PlayerStats.instance.tokens += addAmount;
-        tokenText.text = "Tokens: " + PlayerStats.instance.tokens;
+        PlayerStats.instance.tokensPerLevel += addAmount;
+        tokenText.text = "Tokens: " + PlayerStats.instance.tokensPerLevel;
     }
 }

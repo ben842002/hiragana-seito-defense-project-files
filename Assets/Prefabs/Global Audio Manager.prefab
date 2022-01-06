@@ -52,23 +52,37 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   - name: Turret Shoot
-    volume: 0.2
+    volume: 0.25
     pitch: 1
     audioClip: {fileID: 8300000, guid: 2a9318f3619ba9645802894aeebd4b13, type: 3}
     audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Enemy Hit
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     audioClip: {fileID: 8300000, guid: cd1294542775353409da430b160becbe, type: 3}
     audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Enemy Death
-    volume: 0.25
+    volume: 0.2
     pitch: 1
     audioClip: {fileID: 8300000, guid: b11314ea800e8c14b9bcdd7d0aec2572, type: 3}
+    audioMixerGroup: {fileID: 0}
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Game Over
+    volume: 0.25
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: 6fe28c70c9b21864aa6ba61c34f48da6, type: 3}
+    audioMixerGroup: {fileID: 0}
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Victory
+    volume: 0.5
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: b9da9211e24c76446813e62696458708, type: 3}
     audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}

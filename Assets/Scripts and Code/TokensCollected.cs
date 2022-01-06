@@ -26,6 +26,6 @@ public class TokensCollected : MonoBehaviour
             }
         }
 
-        tokensText.text = "Tokens Collected: " + PlayerStats.instance.tokens + "/" + maxScore;
+        tokensText.text = "Tokens Collected: " + PlayerStats.instance.tokensPerLevel + "/" + maxScore;
     }
 }

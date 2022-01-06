@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 7162921417046698492}
   - component: {fileID: 8479714195033751725}
   - component: {fileID: 5088528926691760816}
-  - component: {fileID: 6489028890529631457}
   - component: {fileID: -6980878762436178353}
   - component: {fileID: 8348816702839088863}
   m_Layer: 6
@@ -396,22 +395,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71e0adb23ebd544392515b6ba59632d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wayP: {fileID: 0}
   moveSpeed: 5
   livesCost: 1
   isFlipped: 1
---- !u!114 &6489028890529631457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162921417046698495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2856c33d5c8c7ce4d9a2982eb5b1c196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDead: 0
 --- !u!114 &-6980878762436178353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +414,7 @@ MonoBehaviour:
   knockBackTimer: 0
   knockBackSourcePosition: {x: 0, y: 0, z: 0}
   knockBackTimerCountdown: 0.05
-  knockBackForce: 7.5
+  knockBackForce: 10
 --- !u!61 &8348816702839088863
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -35,13 +35,17 @@ public class Word
     /// 2.) Sets wordDisplay variable to _display (3rd parameter)
     /// 3.) Passes in hiragana (2nd parameter) into wordDisplay to display the hiragana word on screen
     /// 4.) Stores wordDisplay's parent gameObject into a variable called enemyGameObject. This will be used when a bullet spawns so that it can travel to the right target.
+    /// 5.) Sets the waypoint path the enemy will take. This is included here to account for when enemies in the scenes have different paths from one another
     /// </summary>
-    public Word(string _romaji, string _hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject)
+    public Word(string _romaji, string _hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject, Waypoints _waypoints)
     {
         romajiWord = _romaji;
         romajiIndex = 0;
         hiraganaLength = _hiragana.Length;
         enemyGameObject = wordDisplayParentGameObject;
+
+        // assign this enemy a particular waypoint path
+        enemyGameObject.GetComponent<EnemyMovement>().wayP = _waypoints;
 
         // assign wordDisplay and then use wordDisplay to display hiragana on screen 
         wordDisplay = _display;

@@ -6,7 +6,10 @@ public class WordManager : MonoBehaviour
     WordSpawner wordSpawner;
     TokensText tokensText;
 
-    public GameObject enemyDeathPrefab;
+    // these are constantly constantly updated every time an enemy dies. The enemy passes it's enemyDeathPrefab and boolean value to these variable
+    // See WordDisplay.cs and RemoveWord() for specifics
+    [HideInInspector] public GameObject enemyDeathPrefab;
+    [HideInInspector] public bool isFlipped;
 
     [Header("Turret Animators")]
     [SerializeField] Animator[] turrets;
@@ -25,7 +28,7 @@ public class WordManager : MonoBehaviour
         tokensText = FindObjectOfType<TokensText>();
     }
 
-    public void SpawnEnemyWord(GameObject enemyPrefab, Vector2 spawnPos, string romaji, string hiragana)
+    public void SpawnEnemyWord(GameObject enemyPrefab, Vector2 spawnPos, string romaji, string hiragana, Waypoints waypoints)
     {
         // choose a random index and spawn a wordDisplay. We will pass these into the Word Constructor
         WordDisplay wordDisplay = wordSpawner.SpawnWordDisplay(enemyPrefab, spawnPos);
@@ -33,9 +36,9 @@ public class WordManager : MonoBehaviour
 
         // ------------------------------------------------------------
         // The player will type english letters (romaji) but hiragana will show on screen by passing it in the wordDisplay
-        Word word = new Word(romaji, hiragana, wordDisplay, enemyGameObject);
+        Word word = new Word(romaji, hiragana, wordDisplay, enemyGameObject, waypoints);
 
-        // assign the word to its wordDisplay's enemyWord variable. enemyWord is used when the enemy reaches the end. We want to remove the word from the list
+        // assign the word to its wordDisplay's enemyWord variable. enemyWord is used when the enemy reaches the end. We want to remove the word from the words list
         word.wordDisplay.enemyWord = word;
 
         // ------------------------------------------------------------
@@ -91,7 +94,13 @@ public class WordManager : MonoBehaviour
         if (hasActiveWord == true && activeWord.WordTyped() == true)
         {   
             // spawn enemy death animation
-            GameObject enemyDeath = Instantiate(enemyDeathPrefab, activeWord.enemyGameObject.transform.position, Quaternion.identity);        
+            GameObject enemyDeath = Instantiate(enemyDeathPrefab, activeWord.enemyGameObject.transform.position, Quaternion.identity);
+            if (isFlipped == true)
+            {
+                // have enemy death object face the same direction as the original enemy object
+                enemyDeath.GetComponent<SpriteRenderer>().flipX = true;
+            }
+
             TriggerTurret(enemyDeath);
 
             // add tokens

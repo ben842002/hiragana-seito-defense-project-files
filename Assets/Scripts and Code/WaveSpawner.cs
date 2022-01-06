@@ -30,9 +30,6 @@ public class WaveSpawner : MonoBehaviour
         Counting    // brief waiting time betwwen when a new wave starts and the first enemy spawning
     };
 
-    [Header("Victory Screen Popup Delay")]
-    float victoryPopupDelay = 1f;
-
     [Header("Start Waves")]
     [SerializeField] Animator dialogueBoxAnim;
     bool StartWaves;
@@ -45,14 +42,16 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float timeIntervalBetweenWaves;
     private float waveCountdown;
 
+    [Header("Waypoints")]
+    [SerializeField] Waypoints[] waypointObjects;
+
     public Wave[] waves;
 
     private int waveIndex = 0;
     private SpawnState state = SpawnState.Counting;
 
     // check if all enemies are killed in scene
-    [HideInInspector]
-    public int enemyCount;
+    [HideInInspector] public int enemyCount;
 
     private void Start()
     {
@@ -109,7 +108,13 @@ public class WaveSpawner : MonoBehaviour
         // if the player completes the LAST wave, show victory screen
         if (waveIndex + 1 > waves.Length - 1)
         {
-            GameMaster.gm.Invoke("Victory", victoryPopupDelay);
+            GameMaster.gm.Invoke("Victory", 1.5f);
+
+            // when player finishes a level, add the token amount collected this level to PlayerStats totalTokens variable and then save totalTokens to JSON.
+            PlayerStats stats = PlayerStats.instance;
+            stats.totalTokens += stats.tokensPerLevel;
+            DataManager.SavePlayerStatsData(stats);
+
             enabled = false;    // disable script
         }
         else
@@ -132,17 +137,24 @@ public class WaveSpawner : MonoBehaviour
         // Spawn enemies on an interval (_wave.rate)
         for (int i = 0; i < _wave.hiragana.Length; i++)
         {
-            // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn enemy with the prefab that is
+            // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn enemy with the prefab that is in
             // the corresponding index value
             int prefabIndex = 0;
             if (_wave.enemyPrefab.Length != 1)
                 prefabIndex = i;
 
-            // generate random index for the spawn point of the enemy
+            // generate random index for the spawn point and waypoint path of the enemy
             int randomIndex = Random.Range(0, _wave.spawnPositions.Length);
 
+            // -----------------------------------------------
             // spawn enemy at a location with its word
-            wordManager.SpawnEnemyWord(_wave.enemyPrefab[prefabIndex], _wave.spawnPositions[randomIndex].position, _wave.romaji[i], _wave.hiragana[i]);
+            GameObject enemyPrefab = _wave.enemyPrefab[prefabIndex];
+            Vector2 spawnPos = _wave.spawnPositions[randomIndex].position;
+            string romaji = _wave.romaji[i];
+            string hiragana = _wave.hiragana[i];
+            Waypoints waypoints = waypointObjects[randomIndex];
+
+            wordManager.SpawnEnemyWord(enemyPrefab, spawnPos, romaji, hiragana, waypoints);
             yield return new WaitForSeconds(_wave.rate);
         }
 

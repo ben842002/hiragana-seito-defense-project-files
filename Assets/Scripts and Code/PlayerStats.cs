@@ -9,12 +9,13 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats instance;
 
     [Header("Score")]
-    public int tokens;
+    public int totalTokens;
+    public int tokensPerLevel;
 
     [Header("Lives")] 
     public int maxLives;
     [SerializeField] int _currentLives;
-    public int currentLives // lives are initialized in Player.cs
+    public int currentLives // lives are initialized in GameMaster.cs
     {
         get { return _currentLives; }
         set { _currentLives = Mathf.Clamp(value, 0, maxLives); }
