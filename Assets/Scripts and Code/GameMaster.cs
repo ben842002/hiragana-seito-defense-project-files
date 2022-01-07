@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using UnityEditor;
 
 public class GameMaster : MonoBehaviour
 {
@@ -10,9 +12,6 @@ public class GameMaster : MonoBehaviour
 
     PlayerStats stats;
     [SerializeField] WordManager wordManager;
-
-    [Header("Text Fonts")]
-    [SerializeField] Font[] font;
 
     [Header("Cinemachine Cameras")]
     [SerializeField] float camIntensity;
@@ -37,19 +36,19 @@ public class GameMaster : MonoBehaviour
 
     private void Start()
     {
-        // TO RESET PLAYERPREFS for this particular level
+        // TO RESET levelReached PLAYERPREFS for this particular level
         if (resetLevelPlayerPrefs == true)
-        {
+        {   
+            // resets ALL progress made in Menu Selection (first level should be the only playable one)
             PlayerPrefs.SetInt("levelReached", 1);
+
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 0);
+            Debug.Log("Resetted this Level's PlayerPrefs");
         }
+
         // -------------------------------------------------------------
 
         stats = PlayerStats.instance;
-
-        // make font pixel perfect
-        for (int i = 0; i < font.Length; i++)
-            font[i].material.mainTexture.filterMode = FilterMode.Point;
 
         // 0 = false | 1 = true
         finishedLevel = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 0);
@@ -73,6 +72,11 @@ public class GameMaster : MonoBehaviour
         victoryUI.SetActive(true);
         GlobalAudioManager.instance.Play("Victory");
 
+        // when player finishes a level, add the token amount collected this level to PlayerStats totalTokens variable and then save totalTokens to JSON.
+        PlayerStats stats = PlayerStats.instance;
+        stats.totalTokens += stats.tokensPerLevel;
+        DataManager.SavePlayerStatsData(stats);
+
         // only increase levelValue when player finishes the level for the first time
         if (finishedLevel == 0)
         {
@@ -93,8 +97,9 @@ public class GameMaster : MonoBehaviour
         stats.currentLives -= livesRemoved;
         Lives.instance.UpdateLives();
 
-        // camera shake effect
+        // camera shake and audio effect
         CinemachineShake.instance.ShakeCamera(camIntensity, camTime);
+        GlobalAudioManager.instance.Play("Lose Lives");
 
         // check if enemy's word is the active word
         Word enemysWord = enemyGameObject.GetComponentInChildren<WordDisplay>().enemyWord;

@@ -15,7 +15,6 @@ public class Sound
     public float pitch;
 
     public AudioClip audioClip;
-    public AudioMixerGroup audioMixerGroup;
 
     public bool loop;
 

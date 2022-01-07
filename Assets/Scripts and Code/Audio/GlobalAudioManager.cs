@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GlobalAudioManager : MonoBehaviour
 {   
     // This class is identical to AudioManager.cs but will contain global sounds such as hovering over a button, turret firing, victory, and defeat.
 
     public static GlobalAudioManager instance;
+
+    [Header("Audio Mixer")]
+    [SerializeField] AudioMixerGroup audioMixer;
 
     [SerializeField] Sound[] globalSounds;
 
@@ -31,7 +35,7 @@ public class GlobalAudioManager : MonoBehaviour
             audioS.clip = globalSounds[i].audioClip;
             audioS.volume = globalSounds[i].volume;
             audioS.pitch = globalSounds[i].pitch;
-            audioS.outputAudioMixerGroup = globalSounds[i].audioMixerGroup;
+            audioS.outputAudioMixerGroup = audioMixer;
             audioS.loop = globalSounds[i].loop;
         }
     }

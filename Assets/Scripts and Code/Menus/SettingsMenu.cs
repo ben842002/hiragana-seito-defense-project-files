@@ -27,7 +27,7 @@ public class SettingsMenu : MonoBehaviour
         // -----------------------------------------------
         // load settings data and adjust UI to match values
         LoadFullscreenDataForToggle();
-        //LoadSliderAndVolumeData(); 
+        LoadSliderAndVolumeData();
     }
 
     void CalculateScreenResolutions()

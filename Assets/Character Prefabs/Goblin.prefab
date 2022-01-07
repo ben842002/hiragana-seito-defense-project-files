@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87dcf28978c3474899a27571bc007a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 6
-  maxSpeed: 8
+  minSpeed: 5.5
+  maxSpeed: 6.5
 --- !u!114 &5761187072240367321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayP: {fileID: 0}
-  moveSpeed: 7.5
+  moveSpeed: 5
   livesCost: 1
   isFlipped: 1
 --- !u!114 &1617672730316562982

@@ -110,11 +110,6 @@ public class WaveSpawner : MonoBehaviour
         {
             GameMaster.gm.Invoke("Victory", 1.5f);
 
-            // when player finishes a level, add the token amount collected this level to PlayerStats totalTokens variable and then save totalTokens to JSON.
-            PlayerStats stats = PlayerStats.instance;
-            stats.totalTokens += stats.tokensPerLevel;
-            DataManager.SavePlayerStatsData(stats);
-
             enabled = false;    // disable script
         }
         else

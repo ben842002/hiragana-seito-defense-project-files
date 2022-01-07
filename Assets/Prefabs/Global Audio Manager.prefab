@@ -43,46 +43,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281655515368e0b4082b8cff8957e4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24300002, guid: 7d85b4c8db2ca6940970f51393cf9c8e, type: 2}
   globalSounds:
   - name: Button Hover
     volume: 1
     pitch: 1
     audioClip: {fileID: 8300000, guid: 0fcb7309d4295344e98facc823fd7d9d, type: 3}
-    audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Turret Shoot
-    volume: 0.25
+    volume: 0.2
     pitch: 1
     audioClip: {fileID: 8300000, guid: 2a9318f3619ba9645802894aeebd4b13, type: 3}
-    audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Enemy Hit
-    volume: 0.2
+    volume: 0.15
     pitch: 1
     audioClip: {fileID: 8300000, guid: cd1294542775353409da430b160becbe, type: 3}
-    audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Enemy Death
-    volume: 0.2
-    pitch: 1
-    audioClip: {fileID: 8300000, guid: b11314ea800e8c14b9bcdd7d0aec2572, type: 3}
-    audioMixerGroup: {fileID: 0}
+    volume: 0.15
+    pitch: 0.9
+    audioClip: {fileID: 8300000, guid: 7c736d7bab8802b4cbe76ba7a7b8d816, type: 3}
     loop: 0
     audioSource: {fileID: 0}
   - name: Game Over
     volume: 0.25
     pitch: 1
     audioClip: {fileID: 8300000, guid: 6fe28c70c9b21864aa6ba61c34f48da6, type: 3}
-    audioMixerGroup: {fileID: 0}
     loop: 0
     audioSource: {fileID: 0}
   - name: Victory
     volume: 0.5
     pitch: 1
     audioClip: {fileID: 8300000, guid: b9da9211e24c76446813e62696458708, type: 3}
-    audioMixerGroup: {fileID: 0}
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Lose Lives
+    volume: 0.25
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: 6c9cb52a9da581541b9d07b7fa25e3f4, type: 3}
     loop: 0
     audioSource: {fileID: 0}

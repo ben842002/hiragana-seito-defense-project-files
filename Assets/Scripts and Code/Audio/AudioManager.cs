@@ -7,6 +7,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    [Header("Audio Mixer")]
+    [SerializeField] AudioMixerGroup audioMixer;
+
     [Header("Sounds Array")]
     [SerializeField] Sound[] sounds;
 
@@ -14,6 +17,9 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        if (audioMixer == null)
+            Debug.LogError("No AudioMixer Instance Found!");
 
         // initialize sounds
         for (int i = 0; i < sounds.Length; i++)
@@ -26,8 +32,8 @@ public class AudioManager : MonoBehaviour
             audioS.clip = sounds[i].audioClip;
             audioS.volume = sounds[i].volume;
             audioS.pitch = sounds[i].pitch;
-            audioS.outputAudioMixerGroup = sounds[i].audioMixerGroup;
             audioS.loop = sounds[i].loop;
+            audioS.outputAudioMixerGroup = audioMixer;
         }
     }
 
