@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
-using System.Linq;
-using UnityEditor;
 
 public class GameMaster : MonoBehaviour
 {
