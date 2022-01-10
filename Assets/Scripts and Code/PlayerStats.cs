@@ -8,13 +8,17 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
 
-    [Header("Score")]
+    [Header("Tokens")]
     public int totalTokens;
     public int tokensPerLevel;
 
     [Header("Lives")] 
     public int maxLives;
     [SerializeField] int _currentLives;
+
+    [Header("Activatables")]
+    public int slowDownTime5s;
+
     public int currentLives // lives are initialized in GameMaster.cs
     {
         get { return _currentLives; }

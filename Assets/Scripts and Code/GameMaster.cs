@@ -75,7 +75,7 @@ public class GameMaster : MonoBehaviour
         stats.totalTokens += stats.tokensPerLevel;
         DataManager.SavePlayerStatsData(stats);
 
-        // only increase levelValue when player finishes the level for the first time
+        // only increase levelValue once when player finishes the level for the first time
         if (finishedLevel == 0)
         {
             // allow player to play next level
