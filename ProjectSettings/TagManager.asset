@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - SpawnPoint
   - EnemyDeath
+  - GameOverUI
+  - VictoryUI
+  - WaveCounter
   layers:
   - Default
   - TransparentFX
