@@ -1,0 +1,4 @@
+repository "Hiragana Seito Defense"
+  path "/"
+    br "/main"
+    co "/main"

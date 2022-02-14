@@ -8,8 +8,12 @@ public class GameMaster : MonoBehaviour
 {
     public static GameMaster gm;
 
+    // this int is referenced in TokensCollected.cs
+    public static int maxTokensToBeCollected;
+
     PlayerStats stats;
     [SerializeField] WordManager wordManager;
+    WaveSpawner waveSpawner;
 
     [Header("Cinemachine Cameras")]
     [SerializeField] float camIntensity;
@@ -47,6 +51,7 @@ public class GameMaster : MonoBehaviour
         // -------------------------------------------------------------
 
         stats = PlayerStats.instance;
+        waveSpawner = FindObjectOfType<WaveSpawner>();
 
         // 0 = false | 1 = true
         finishedLevel = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 0);
@@ -62,6 +67,22 @@ public class GameMaster : MonoBehaviour
 
         // reset tokens every level (PlayerStats is DontDestroyOnLoad)
         stats.tokensPerLevel = 0;
+
+        // calculate max tokens
+        CalculateMaxTokens();
+    }
+
+    void CalculateMaxTokens()
+    {
+        // loop through each wave element in the Waves array in WaveSpawner.cs
+        for (int i = 0; i < waveSpawner.waves.Length; i++)
+        {
+            // loop through the hiragana list, determining the max score a player can get
+            for (int j = 0; j < waveSpawner.waves[i].hiragana.Count; j++)
+            {
+                maxTokensToBeCollected += waveSpawner.waves[i].hiragana[j].Length;
+            }
+        }
     }
 
     // victory screen that is shown once player beats all waves

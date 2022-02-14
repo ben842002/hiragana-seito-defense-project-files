@@ -49,12 +49,15 @@ public class InventoryManager : MonoBehaviour
         // ----------------------------------------------------
         // USER INPUT TO ACTIVATE ITEMS/CONSUMABLES
 
+        // -------------
         // Slow Time
         if (Input.GetKeyDown(KeyCode.Alpha1) && stats.slowDownTime5s >= 1)
             ActivateSlowTime();
         
         if (isInTimeSlowAbility == true)
             SlowTime();
+
+        // -------------
     }
 
     // -------------------------------------------------------------------

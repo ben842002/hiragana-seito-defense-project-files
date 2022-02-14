@@ -64,7 +64,7 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   - name: Enemy Death
-    volume: 0.15
+    volume: 0
     pitch: 0.9
     audioClip: {fileID: 8300000, guid: 7c736d7bab8802b4cbe76ba7a7b8d816, type: 3}
     loop: 0
