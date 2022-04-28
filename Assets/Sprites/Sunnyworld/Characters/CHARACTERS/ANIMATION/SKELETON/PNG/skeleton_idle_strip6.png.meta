@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 09222c02f42695c4a8f70493ac621196
+guid: 008fe0646e14f004cb762c94eedcace8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4432793351920879750
-    second: Hearts_0
+      213: 6677806975911841103
+    second: skeleton_idle_strip6_0
   - first:
-      213: 5642012044021194823
-    second: Hearts_1
+      213: -2398702121313481594
+    second: skeleton_idle_strip6_1
+  - first:
+      213: 8771665013117496736
+    second: skeleton_idle_strip6_2
+  - first:
+      213: 8931733440314086895
+    second: skeleton_idle_strip6_3
+  - first:
+      213: 4959156931009317258
+    second: skeleton_idle_strip6_4
+  - first:
+      213: -6635958139948888635
+    second: skeleton_idle_strip6_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -75,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hearts_0
+      name: skeleton_idle_strip6_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 39
-        width: 11
-        height: 10
+        x: 0
+        y: 0
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68805ff4112748d30800000000000000
-      internalID: 4432793351920879750
+      spriteID: f4dc9d560165cac50800000000000000
+      internalID: 6677806975911841103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hearts_1
+      name: skeleton_idle_strip6_1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 39
-        width: 11
-        height: 10
+        x: 96
+        y: 0
+        width: 96
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +157,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 740eb56bf047c4e40800000000000000
-      internalID: 5642012044021194823
+      spriteID: 68c4229212916bed0800000000000000
+      internalID: -2398702121313481594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_idle_strip6_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad279bead63bb970800000000000000
+      internalID: 8771665013117496736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_idle_strip6_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5166add34e3fb70800000000000000
+      internalID: 8931733440314086895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_idle_strip6_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a890a3a34f672d440800000000000000
+      internalID: 4959156931009317258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_idle_strip6_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd0cf30b3758e3a0800000000000000
+      internalID: -6635958139948888635
       vertices: []
       indices: 
       edges: []
@@ -162,8 +258,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hearts_0: 4432793351920879750
-      Hearts_1: 5642012044021194823
+      skeleton_idle_strip6_5: -6635958139948888635
+      skeleton_idle_strip6_4: 4959156931009317258
+      skeleton_idle_strip6_3: 8931733440314086895
+      skeleton_idle_strip6_2: 8771665013117496736
+      skeleton_idle_strip6_0: 6677806975911841103
+      skeleton_idle_strip6_1: -2398702121313481594
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

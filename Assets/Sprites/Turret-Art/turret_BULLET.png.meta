@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 09222c02f42695c4a8f70493ac621196
+guid: c24940e86c833344395df1df472d09f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4432793351920879750
-    second: Hearts_0
+      213: -9133718559506706844
+    second: turret_BULLET_0
   - first:
-      213: 5642012044021194823
-    second: Hearts_1
+      213: 848465563972751956
+    second: turret_BULLET_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hearts_0
+      name: turret_BULLET_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 39
-        width: 11
-        height: 10
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68805ff4112748d30800000000000000
-      internalID: 4432793351920879750
+      spriteID: 46ec536dc538e3180800000000000000
+      internalID: -9133718559506706844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hearts_1
+      name: turret_BULLET_1
       rect:
         serializedVersion: 2
-        x: 47
-        y: 39
-        width: 11
-        height: 10
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 740eb56bf047c4e40800000000000000
-      internalID: 5642012044021194823
+      spriteID: 4525fb06fea56cb00800000000000000
+      internalID: 848465563972751956
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hearts_0: 4432793351920879750
-      Hearts_1: 5642012044021194823
+      turret_BULLET_0: -9133718559506706844
+      turret_BULLET_1: 848465563972751956
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
