@@ -15978,7 +15978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 34708450}
         m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
         m_MethodName: StartWaveSpawn
         m_Mode: 1
