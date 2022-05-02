@@ -6,6 +6,6 @@ public class LevelSelector : MonoBehaviour
 
     public void Select(string levelName)
     {
-        StartCoroutine(LevelLoader.instance.LoadLevelByString(levelName));
+        StartCoroutine(LevelLoader.instance.LoadLevelByName(levelName));
     }
 }

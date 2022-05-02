@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// Class responsible for saving and loading PlayerStats data.
+/// </summary>
 public class DataManager : MonoBehaviour
 {
-    // Constantly update this as you expand the game
-
     private void Start()
-    {
+    {   
+        // At the start of each level, load in all saved data
         CheckForSaveFiles();
 
         // FOR TESTING PURPOSES ONLY: Delete PlayerStats save file
@@ -54,9 +56,12 @@ public class DataManager : MonoBehaviour
             Debug.LogError("File not found!");
     }
 
-    // All stats variables go here
-    // NOTE: Constantly update this as you expand
-    static void LoadStats(PlayerStats stats, PlayerStatsData data)
+    /// <summary>
+    /// Static function that assigns all PlayerStats variables. This function will be updated constantly
+    /// </summary>
+    /// <param name="stats"></param>
+    /// <param name="data"></param>
+    private static void LoadStats(PlayerStats stats, PlayerStatsData data)
     {
         stats.totalTokens = data.totalTokens;
         stats.maxLives = data.maxLives;

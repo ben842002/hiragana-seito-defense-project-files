@@ -107,7 +107,7 @@ public class WordManager : MonoBehaviour
             tokensText.AddTokens(activeWord.hiraganaLength);
 
             // decrement enemyCount for waveSpawner
-            WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
+            WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
             waveSpawner.enemyCount--;
 
             // set active word boolean to false as the word has been completed and delete the active word from words list

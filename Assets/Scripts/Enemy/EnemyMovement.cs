@@ -21,7 +21,6 @@ public class EnemyMovement : MonoBehaviour
     // for animations
     [Header("If the object is facing right, toggle isFlipped to true")]
     [SerializeField] bool isFlipped;
-    bool facingRight;
 
     private void Awake()
     {
@@ -39,6 +38,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {   
+        // move towards current designated waypoint
         if (kb.knockBackTimer <= 0)
         {
             Vector3 direction = (target.position - transform.position).normalized * moveSpeed;
@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
             GameMaster.gm.RemoveLives(livesCost, gameObject);
 
             // decrement enemyCount for waveSpawner
-            WaveSpawner waveSpawner = GameMaster.gm.GetComponent<WaveSpawner>();
+            WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
             waveSpawner.enemyCount--;
 
             Destroy(gameObject);
@@ -91,14 +91,12 @@ public class EnemyMovement : MonoBehaviour
         {
             sr.flipX = true;
             isFlipped = false;
-            facingRight = false;
         }
         // when the player is to the RIGHT and isFlipped is false, ROTATE 180 DEGREES
         else if (target.position.x > transform.position.x && isFlipped == false)
         {
             sr.flipX = false;
             isFlipped = true;
-            facingRight = true;
         }
     }
 }
