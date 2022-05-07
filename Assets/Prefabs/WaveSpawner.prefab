@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7797585102655804978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7797585102655804976}
+  - component: {fileID: 7797585102655804991}
+  - component: {fileID: 7797585102655804990}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7797585102655804976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797585102655804978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7797585102655804991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797585102655804978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7f76100ffabd2419e9a62deca243df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxAnim: {fileID: 0}
+  timeIntervalBetweenWaves: 2
+  waypointObjects:
+  - {fileID: 0}
+  waves:
+  - spawnPositions:
+    - {fileID: 0}
+    rate: 2
+    enemyPrefab:
+    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
+    romaji: []
+    hiragana: []
+  - spawnPositions:
+    - {fileID: 0}
+    rate: 1.75
+    enemyPrefab:
+    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
+    romaji: []
+    hiragana: []
+  - spawnPositions:
+    - {fileID: 0}
+    rate: 1.5
+    enemyPrefab:
+    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
+    romaji: []
+    hiragana: []
+  - spawnPositions:
+    - {fileID: 0}
+    rate: 1.25
+    enemyPrefab:
+    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
+    romaji: []
+    hiragana: []
+  enemyCount: 0
+--- !u!114 &7797585102655804990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797585102655804978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c5ba955c7c9064b8df9c0bb2091766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiraganaFile: {fileID: 0}

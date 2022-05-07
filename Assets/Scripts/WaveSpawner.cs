@@ -15,8 +15,8 @@ public class WaveSpawner : MonoBehaviour
 
         [Header("Words: Make sure array sizes are identical")]
         public List<GameObject> enemyPrefab;
-        public List<string> romaji;
-        public List<string> hiragana;
+        [HideInInspector] public List<string> romajiList;
+        [HideInInspector] public List<string> hiraganaList;
     }
     // -------------------------------------------------------------
 
@@ -59,7 +59,6 @@ public class WaveSpawner : MonoBehaviour
         wordManager = FindObjectOfType<WordManager>();
         wordInput = FindObjectOfType<WordInput>();
         wavesCountText = GameObject.FindGameObjectWithTag("WaveCounter").GetComponent<TMP_Text>();
-
 
         // initialize wave count, text, and romaji/hiragana lists
         UpdateWaveCounter(0);
@@ -110,8 +109,8 @@ public class WaveSpawner : MonoBehaviour
         // initialize waves with romaji and hiragana
         foreach (Wave wave in waves)
         {
-            wave.romaji = romajiLists.Dequeue();
-            wave.hiragana = hiraganaLists.Dequeue();
+            wave.romajiList = romajiLists.Dequeue();
+            wave.hiraganaList = hiraganaLists.Dequeue();
         }
     }
 
@@ -144,10 +143,10 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnState.Spawning;
 
         // hiragana.Length and romaji.Length will always be the same which means you can use either or
-        enemyCount = _wave.hiragana.Count;
+        enemyCount = _wave.hiraganaList.Count;
 
         // Spawn enemies on an interval (_wave.rate)
-        int loopAmount = _wave.hiragana.Count;
+        int loopAmount = _wave.hiraganaList.Count;
         for (int i = 0; i < loopAmount; i++)
         {
             // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn enemy with the prefab that is in
@@ -160,20 +159,20 @@ public class WaveSpawner : MonoBehaviour
             int randomSpawnIndex = Random.Range(0, _wave.spawnPositions.Length);
 
             // Choose a hiragana randomly for this particular wave
-            int randomHiraganaIndex = Random.Range(0, _wave.hiragana.Count);
+            int randomHiraganaIndex = Random.Range(0, _wave.hiraganaList.Count);
 
             // -----------------------------------------------
             // spawn enemy at a location with its word
             GameObject enemyPrefab = _wave.enemyPrefab[prefabIndex];
             Vector2 spawnPos = _wave.spawnPositions[randomSpawnIndex].position;
-            string romaji = _wave.romaji[randomHiraganaIndex];
-            string hiragana = _wave.hiragana[randomHiraganaIndex];
+            string romaji = _wave.romajiList[randomHiraganaIndex];
+            string hiragana = _wave.hiraganaList[randomHiraganaIndex];
             Waypoints waypoints = waypointObjects[randomSpawnIndex];
             wordManager.SpawnEnemyWord(enemyPrefab, spawnPos, romaji, hiragana, waypoints);
 
             // remove hiragana and romaji so that it is not considered when choosing a random index
-            _wave.romaji.Remove(_wave.romaji[randomHiraganaIndex]);
-            _wave.hiragana.Remove(_wave.hiragana[randomHiraganaIndex]);
+            _wave.romajiList.Remove(_wave.romajiList[randomHiraganaIndex]);
+            _wave.hiraganaList.Remove(_wave.hiraganaList[randomHiraganaIndex]);
 
             yield return new WaitForSeconds(_wave.rate);
         }

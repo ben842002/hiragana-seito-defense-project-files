@@ -78,9 +78,9 @@ public class GameMaster : MonoBehaviour
         for (int i = 0; i < waveSpawner.waves.Length; i++)
         {
             // loop through the hiragana list, determining the max score a player can get
-            for (int j = 0; j < waveSpawner.waves[i].hiragana.Count; j++)
+            for (int j = 0; j < waveSpawner.waves[i].hiraganaList.Count; j++)
             {
-                maxTokensToBeCollected += waveSpawner.waves[i].hiragana[j].Length;
+                maxTokensToBeCollected += waveSpawner.waves[i].hiraganaList[j].Length;
             }
         }
     }

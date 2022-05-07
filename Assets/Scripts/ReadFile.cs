@@ -5,8 +5,11 @@ using UnityEngine;
 /// <summary>
 /// Responsible for reading a text file specified in the Unity inspector.
 /// </summary>
+[RequireComponent(typeof(TextAsset))]
 public class ReadFile : MonoBehaviour
 {
+    // VIDEO FOR REFERENCE: https://www.youtube.com/watch?v=MDqqskeqHvA
+
     [SerializeField] TextAsset hiraganaFile;
     
     /// <summary>
@@ -37,7 +40,7 @@ public class ReadFile : MonoBehaviour
             // continuously add the hiragana and romaji to their lists until a line contains a word: break. If so, enqueue the lists
             if (line[0] == "break")
             {   
-                // enqueueing the two actual lists will result in all the waves' hiragana and romaji list to be the same. To avoid this, enqueue copy instances instead.
+                // enqueueing the two actual lists will result in all the waves' hiragana and romaji list to be the same. To avoid this, enqueue instance copies instead.
                 List<string> romajiCopy = new List<string>(romajiList);
                 List<string> hiraganaCopy = new List<string>(hiraganaList);
 

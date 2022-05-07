@@ -7748,7 +7748,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &307219725
 MonoBehaviour:
@@ -12886,98 +12886,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136280043}
   m_CullTransparentMesh: 1
---- !u!1 &1244028613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1244028615}
-  - component: {fileID: 1244028616}
-  - component: {fileID: 1244028617}
-  m_Layer: 0
-  m_Name: WaveSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1244028615
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244028613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1244028616
+--- !u!114 &1244028616 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+  m_PrefabInstance: {fileID: 7797585101747587319}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244028613}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca7f76100ffabd2419e9a62deca243df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBoxAnim: {fileID: 897771064}
-  timeIntervalBetweenWaves: 2
-  waypointObjects:
-  - {fileID: 853519923}
-  waves:
-  - spawnPositions:
-    - {fileID: 876201675}
-    rate: 2
-    enemyPrefab:
-    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
-  - spawnPositions:
-    - {fileID: 876201675}
-    rate: 1.75
-    enemyPrefab:
-    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
-  - spawnPositions:
-    - {fileID: 876201675}
-    rate: 1.5
-    enemyPrefab:
-    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
-  - spawnPositions:
-    - {fileID: 876201675}
-    rate: 1.25
-    enemyPrefab:
-    - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
-  enemyCount: 0
---- !u!114 &1244028617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244028613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c5ba955c7c9064b8df9c0bb2091766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hiraganaFile: {fileID: 4900000, guid: 72727f24efd3a104d8c4f0594fb3bb65, type: 3}
 --- !u!4 &1313013314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8928963219734755408, guid: 834658bb028dcff41853dcb40ae33a91, type: 3}
@@ -15176,6 +15095,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18fe7713ae3623942b952c8cee632602, type: 3}
+--- !u!1001 &7797585101747587319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804976, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804978, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: m_Name
+      value: WaveSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804990, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: hiraganaFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 72727f24efd3a104d8c4f0594fb3bb65, type: 3}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: dialogueBoxAnim
+      value: 
+      objectReference: {fileID: 897771064}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waypointObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 853519923}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waves.Array.data[0].spawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 876201675}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waves.Array.data[1].spawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 876201675}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waves.Array.data[2].spawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 876201675}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waves.Array.data[3].spawnPositions.Array.data[0]
+      value: 
+      objectReference: {fileID: 876201675}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
 --- !u!1001 &7852400759648437065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15183,6 +15187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1509267269949462263, guid: 91f944ac7e6013c458d153a2bad5b214, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.223633
+      objectReference: {fileID: 0}
     - target: {fileID: 3501264873761628782, guid: 91f944ac7e6013c458d153a2bad5b214, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
