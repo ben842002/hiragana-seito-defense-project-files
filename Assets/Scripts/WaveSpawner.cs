@@ -27,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
     {
         Spawning,   // while enemies are spawning during a wave
         Waiting,    // while enemies are all spawned but still active in the scene
-        Counting    // brief waiting time betwwen when a new wave starts and the first enemy spawning
+        Counting    // brief waiting time between when a new wave starts and the first enemy spawning
     };
 
     [Header("Start Waves")]
@@ -45,6 +45,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] Waypoints[] waypointObjects;
 
     public Wave[] waves;
+    Queue<List<string>> romajiLists = new Queue<List<string>>();
+    Queue<List<string>> hiraganaLists = new Queue<List<string>>();
 
     private int waveIndex = 0;
     private SpawnState state = SpawnState.Counting;
@@ -58,8 +60,10 @@ public class WaveSpawner : MonoBehaviour
         wordInput = FindObjectOfType<WordInput>();
         wavesCountText = GameObject.FindGameObjectWithTag("WaveCounter").GetComponent<TMP_Text>();
 
-        // initialize wave count and text
+
+        // initialize wave count, text, and romaji/hiragana lists
         UpdateWaveCounter(0);
+        ReadFile();
 
         // Show dialogue box to player when entering scene
         dialogueBoxAnim.SetBool("isOpen", true);
@@ -95,6 +99,19 @@ public class WaveSpawner : MonoBehaviour
                     StartCoroutine(SpawnWave(waves[waveIndex]));
                 }
             }
+        }
+    }
+
+    void ReadFile()
+    {
+        ReadFile reader = FindObjectOfType<ReadFile>();
+        reader.ReadTextFile(ref romajiLists, ref hiraganaLists);
+
+        // initialize waves with romaji and hiragana
+        foreach (Wave wave in waves)
+        {
+            wave.romaji = romajiLists.Dequeue();
+            wave.hiragana = hiraganaLists.Dequeue();
         }
     }
 

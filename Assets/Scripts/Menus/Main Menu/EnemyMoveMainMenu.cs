@@ -25,7 +25,6 @@ public class EnemyMoveMainMenu : MonoBehaviour
     // for animations
     [Header("If the object is facing right, toggle isFlipped to true")]
     [SerializeField] bool isFlipped;
-    bool facingRight;
 
     private void Awake()
     {
@@ -100,14 +99,12 @@ public class EnemyMoveMainMenu : MonoBehaviour
         {
             sr.flipX = true;
             isFlipped = false;
-            facingRight = false;
         }
         // when the player is to the RIGHT and isFlipped is false, ROTATE 180 DEGREES
         else if (target.position.x > transform.position.x && isFlipped == false)
         {
             sr.flipX = false;
             isFlipped = true;
-            facingRight = true;
         }
     }
 }

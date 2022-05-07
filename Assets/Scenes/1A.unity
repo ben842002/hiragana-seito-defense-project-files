@@ -12896,6 +12896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1244028615}
   - component: {fileID: 1244028616}
+  - component: {fileID: 1244028617}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -12940,84 +12941,43 @@ MonoBehaviour:
     rate: 2
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji:
-    - a
-    - i
-    - u
-    - e
-    - o
-    hiragana:
-    - "\u3042"
-    - "\u3044"
-    - "\u3046"
-    - "\u3048"
-    - "\u304A"
+    romaji: []
+    hiragana: []
   - spawnPositions:
     - {fileID: 876201675}
     rate: 1.75
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji:
-    - o
-    - u
-    - e
-    - a
-    - i
-    hiragana:
-    - "\u304A"
-    - "\u3046"
-    - "\u3048"
-    - "\u3042"
-    - "\u3044"
+    romaji: []
+    hiragana: []
   - spawnPositions:
     - {fileID: 876201675}
     rate: 1.5
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji:
-    - e
-    - i
-    - u
-    - o
-    - a
-    - u
-    - e
-    - i
-    - o
-    - a
-    - u
-    hiragana:
-    - "\u3048"
-    - "\u3044"
-    - "\u3046"
-    - "\u304A"
-    - "\u3042"
-    - "\u3046"
-    - "\u3048"
-    - "\u3044"
-    - "\u304A"
-    - "\u3042"
-    - "\u3046"
+    romaji: []
+    hiragana: []
   - spawnPositions:
     - {fileID: 876201675}
     rate: 1.25
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji:
-    - ao
-    - iie
-    - ie
-    - ei
-    - oi
-    - ui
-    hiragana:
-    - "\u3042\u304A"
-    - "\u3044\u3044\u3048"
-    - "\u3044\u3048"
-    - "\u3048\u3044"
-    - "\u304A\u3044"
-    - "\u3046\u3044"
+    romaji: []
+    hiragana: []
   enemyCount: 0
+--- !u!114 &1244028617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244028613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c5ba955c7c9064b8df9c0bb2091766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiraganaFile: {fileID: 4900000, guid: 72727f24efd3a104d8c4f0594fb3bb65, type: 3}
 --- !u!4 &1313013314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8928963219734755408, guid: 834658bb028dcff41853dcb40ae33a91, type: 3}
