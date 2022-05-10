@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7797585102655804976}
   - component: {fileID: 7797585102655804991}
   - component: {fileID: 7797585102655804990}
+  - component: {fileID: 9039891791035640961}
   m_Layer: 0
   m_Name: WaveSpawner
   m_TagString: Untagged
@@ -55,29 +56,29 @@ MonoBehaviour:
     rate: 2
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
+    romajiList: []
+    hiraganaList: []
   - spawnPositions:
     - {fileID: 0}
     rate: 1.75
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
+    romajiList: []
+    hiraganaList: []
   - spawnPositions:
     - {fileID: 0}
     rate: 1.5
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
+    romajiList: []
+    hiraganaList: []
   - spawnPositions:
     - {fileID: 0}
     rate: 1.25
     enemyPrefab:
     - {fileID: 7162921417046698495, guid: 02f64b5e494a90d428bf394b6fad3d56, type: 3}
-    romaji: []
-    hiragana: []
+    romajiList: []
+    hiraganaList: []
   enemyCount: 0
 --- !u!114 &7797585102655804990
 MonoBehaviour:
@@ -92,3 +93,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiraganaFile: {fileID: 0}
+--- !u!114 &9039891791035640961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7797585102655804978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c9890420eb6459a594aa3a334ba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiraganaTableFile: {fileID: 4900000, guid: b7356fbf0fae434459da56c062bba89f, type: 3}
