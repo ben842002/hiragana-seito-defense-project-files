@@ -14,6 +14,9 @@ public class HiraganaTable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (hiraganaTableFile == null)
+            Debug.LogError("Hiragana file not found!");
+
         ReadFile();
     }
 

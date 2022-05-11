@@ -106,10 +106,9 @@ public class Word
     // Function is called in HiraganaCheck
     void RemoveHiragana(int numberOfHiragana)
     {   
-        // only shoot when we haven't completed a word (there is a bug where a bullet spawns and goes to the wrong target)
+        // Trigger turret. Only shoot when we haven't completed a word (there is a bug where a bullet spawns and goes to the wrong target)
         if (WordTyped() == false)
         {   
-            // find WordManager script and trigger turret
             WordManager wm = Object.FindObjectOfType<WordManager>();
             wm.TriggerTurret(enemyGameObject);
         }

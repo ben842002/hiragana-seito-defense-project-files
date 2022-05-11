@@ -9,9 +9,9 @@ public class WaveSpawner : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        public Transform[] spawnPositions;
-
         public float rate;
+        
+        public Transform[] spawnPositions;
 
         [Header("Words: Make sure array sizes are identical")]
         public List<GameObject> enemyPrefab;
@@ -149,11 +149,10 @@ public class WaveSpawner : MonoBehaviour
         int loopAmount = _wave.hiraganaList.Count;
         for (int i = 0; i < loopAmount; i++)
         {
-            // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn enemy with the prefab that is in
-            // the corresponding index value
+            // if there is only one element in the enemyPrefab array, then all enemies will be that particular prefab. If not, spawn random enemy prefab
             int prefabIndex = 0;
             if (_wave.enemyPrefab.Count != 1)
-                prefabIndex = i;
+                prefabIndex = Random.Range(0, _wave.enemyPrefab.Count);
 
             // generate random index for the spawn point and waypoint path of the enemy
             int randomSpawnIndex = Random.Range(0, _wave.spawnPositions.Length);
