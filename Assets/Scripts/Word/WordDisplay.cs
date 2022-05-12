@@ -11,7 +11,7 @@ public class WordDisplay : MonoBehaviour
     [HideInInspector] public TMP_Text wordText;
 
     // This is used in GameMaster.cs. It checks whether word is the active word when an enemy reaches the end.
-    public Word enemyWord;
+    [HideInInspector] public Word enemyWord;
 
     public GameObject enemyParentGameObject;
     [SerializeField] GameObject enemyDeathPrefab;

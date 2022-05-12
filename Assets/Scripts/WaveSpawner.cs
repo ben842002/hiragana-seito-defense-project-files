@@ -183,7 +183,7 @@ public class WaveSpawner : MonoBehaviour
     // button and text function
     public void StartWaveSpawn()
     {
-        Invoke(nameof(StartBool), .25f);
+        Invoke(nameof(StartBool), 0.25f);
         wordInput.enabled = true;
         dialogueBoxAnim.SetBool("isOpen", false);
         UpdateWaveCounter(1);

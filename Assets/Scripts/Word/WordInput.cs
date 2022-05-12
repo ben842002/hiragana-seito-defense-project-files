@@ -18,6 +18,8 @@ public class WordInput : MonoBehaviour
         string frameInput = Input.inputString;
         for (int i = 0; i < frameInput.Length; i++)
         {
+            frameInput = frameInput.ToLower();
+
             // check if input matches with a letter on the active word. If there is no active word, check if any word in the list
             // starts with the letter that was typed
             char letter = frameInput[i];

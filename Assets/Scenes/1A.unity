@@ -7725,7 +7725,6 @@ GameObject:
   m_Component:
   - component: {fileID: 307219724}
   - component: {fileID: 307219728}
-  - component: {fileID: 307219727}
   - component: {fileID: 307219726}
   - component: {fileID: 307219725}
   m_Layer: 0
@@ -7774,22 +7773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd60f5294305c946bd0076aece6bf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &307219727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307219723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e64ae8fba26f1e41828a0eb7366f163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hiraganaList: []
-  romajiList: []
-  fileName: words.txt
-  editorTXT: 1
 --- !u!114 &307219728
 MonoBehaviour:
   m_ObjectHideFlags: 0
