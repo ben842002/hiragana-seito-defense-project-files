@@ -8,6 +8,7 @@ public class PlayerStatsData
     public int maxLives;
 
     public int slowDownTime5s;
+    public int enemyDestroyers;
 
     /// <summary>
     /// Constructor that takes in the PlayerStats instance. Make sure to constantly keep this constructor up-to-date by 
@@ -20,5 +21,6 @@ public class PlayerStatsData
         maxLives = stats.maxLives;
 
         slowDownTime5s = stats.slowDownTime5s;
+        enemyDestroyers = stats.enemyDestroyers;
     }
 }

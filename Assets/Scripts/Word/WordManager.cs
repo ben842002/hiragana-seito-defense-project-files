@@ -113,7 +113,6 @@ public class WordManager : MonoBehaviour
             // set active word boolean to false as the word has been completed and delete the active word from words list
             hasActiveWord = false;
             words.Remove(activeWord);
-
         }
     }
 

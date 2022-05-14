@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This script is responsible for all inventory related logic such as updating text and defining item game behavior.
+/// </summary>
 public class InventoryManager : MonoBehaviour
 {
-    // This script is responsible for all inventory related logic such as updating text and defining item game behavior
-
     PlayerStats stats;
 
     [Header("Inventory GameObject")]
@@ -14,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Text Objects")]
     [SerializeField] TMP_Text slowTimeText;
+    [SerializeField] TMP_Text enemyDestroyerText;
 
     [Header("Slow Time Ability")]
     public float timeScaleSlowedAmount;
@@ -30,7 +32,8 @@ public class InventoryManager : MonoBehaviour
         stats = PlayerStats.instance;
 
         // initialize text
-        slowTimeText.text = "SlowTime: " + stats.slowDownTime5s;
+        slowTimeText.text = "1. SlowTime: " + stats.slowDownTime5s;
+        enemyDestroyerText.text = "2. EnemyDestroyer: " + stats.enemyDestroyers;
     }
 
     // Update is called once per frame
@@ -51,13 +54,16 @@ public class InventoryManager : MonoBehaviour
 
         // -------------
         // Slow Time
-        if (Input.GetKeyDown(KeyCode.Alpha1) && stats.slowDownTime5s >= 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && stats.slowDownTime5s >= 0)
             ActivateSlowTime();
         
         if (isInTimeSlowAbility == true)
             SlowTime();
 
         // -------------
+        // Enemy Destroyer
+        if (Input.GetKeyDown(KeyCode.Alpha2) && stats.enemyDestroyers > 0)
+            ActivateEnemyDestroyer();
     }
 
     // -------------------------------------------------------------------
@@ -74,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         Time.timeScale = timeScaleSlowedAmount;
         
         // update text
-        slowTimeText.text = "SlowTime: " + stats.slowDownTime5s;   
+        slowTimeText.text = "1. SlowTime: " + stats.slowDownTime5s;   
     }
 
     void SlowTime()
@@ -92,4 +98,19 @@ public class InventoryManager : MonoBehaviour
     }
 
     // ------------------------------------------------------------------
+    // Enemy Destroyer
+
+    void ActivateEnemyDestroyer()
+    {
+        stats.enemyDestroyers--;
+
+        // get all enemies in the scene and kill them
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            // access WordDisplay component to destroy enemy
+            WordDisplay wd = enemies[i].GetComponentInChildren<WordDisplay>();
+            wd.RemoveWord();
+        }
+    }
 }

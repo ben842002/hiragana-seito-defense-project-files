@@ -67,6 +67,7 @@ public class DataManager : MonoBehaviour
         stats.maxLives = data.maxLives;
 
         stats.slowDownTime5s = data.slowDownTime5s;
+        stats.enemyDestroyers = data.enemyDestroyers;
     }
 
     // -------------------------------------------------

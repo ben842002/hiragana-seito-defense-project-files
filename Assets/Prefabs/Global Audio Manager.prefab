@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -85,5 +86,17 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     audioClip: {fileID: 8300000, guid: 6c9cb52a9da581541b9d07b7fa25e3f4, type: 3}
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Buy Success
+    volume: 0.25
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: 31e0b10d0c805e64d96eccb3819297e3, type: 3}
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Buy Failure
+    volume: 0.25
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: 2475b07d6d3b6d844b5c7928b6d5754f, type: 3}
     loop: 0
     audioSource: {fileID: 0}

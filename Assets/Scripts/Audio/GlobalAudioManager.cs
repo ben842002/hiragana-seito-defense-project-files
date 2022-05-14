@@ -55,7 +55,7 @@ public class GlobalAudioManager : MonoBehaviour
         }
 
         // In case sound was not found
-        Debug.LogWarning("Sound not found!");
+        Debug.LogWarning(name + " not found!");
     }
 
     public void Stop(string name)
@@ -70,7 +70,6 @@ public class GlobalAudioManager : MonoBehaviour
             }
         }
 
-        // In case sound was not found
-        Debug.LogWarning("Sound not found!");
+        Debug.LogWarning(name + " not found!");
     }
 }

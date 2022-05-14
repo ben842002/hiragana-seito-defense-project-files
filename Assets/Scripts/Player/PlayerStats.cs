@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Activatables")]
     public int slowDownTime5s;
+    public int enemyDestroyers;
 
     public int currentLives // lives are initialized in GameMaster.cs
     {
