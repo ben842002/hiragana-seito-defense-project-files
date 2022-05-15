@@ -4280,6 +4280,8 @@ MonoBehaviour:
   enemyDestroyerText: {fileID: 188735506}
   timeScaleSlowedAmount: 0.25
   slowTimeCountdown: 5
+  camIntensity: 15
+  camTime: 0.2
 --- !u!114 &3868708719170311612
 MonoBehaviour:
   m_ObjectHideFlags: 0

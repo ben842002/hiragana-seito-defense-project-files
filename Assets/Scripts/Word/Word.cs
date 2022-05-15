@@ -7,7 +7,7 @@ using System.Linq;
 public class Word
 {
     // contains the actual word in ROMAJI
-    public string romajiWord;
+    [HideInInspector] public string romajiWord;
 
     // int index to keep track of typing (basically what position we are at in a word)
     private int romajiIndex;
@@ -21,7 +21,7 @@ public class Word
     // -----------------------------------------------------------------------------
 
     // store gameObject so turrets correctly shoot at target when typing
-    public GameObject enemyGameObject;
+    [HideInInspector] public GameObject enemyGameObject;
 
     // store the size of the hiragana string. This value is used when adding tokens after an enemy has been killed
     [HideInInspector] public int hiraganaLength;
@@ -30,12 +30,7 @@ public class Word
     [HideInInspector] public WordDisplay wordDisplay;
 
     /// <summary>
-    /// Constructor (initializer) 
-    /// 1.) Sets word variable to romaji (1st parameter) and will be the word that the player actually types. 
-    /// 2.) Sets wordDisplay variable to _display (3rd parameter)
-    /// 3.) Passes in hiragana (2nd parameter) into wordDisplay to display the hiragana word on screen
-    /// 4.) Stores wordDisplay's parent gameObject into a variable called enemyGameObject. This will be used when a bullet spawns so that it can travel to the right target.
-    /// 5.) Sets the waypoint path the enemy will take. This is included here to account for when enemies in the scenes have different paths from one another
+    /// Constructor that initializes and sets the romaji that is to be typed, the hiragana that is to be seen on screen through the wordDisplay, and waypoint movement path.
     /// </summary>
     public Word(string _romaji, string _hiragana, WordDisplay _display, GameObject wordDisplayParentGameObject, Waypoints _waypoints)
     {

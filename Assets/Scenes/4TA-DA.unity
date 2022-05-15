@@ -9373,6 +9373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459a330e7f6a57e41bab651968a7d2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tokensText: {fileID: 0}
   enemyDeathPrefab: {fileID: 5695112628659073873, guid: 606365e177c3a7f4989d37ce23cb98d6, type: 3}
   isFlipped: 0
   turrets:

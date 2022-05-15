@@ -4,7 +4,9 @@ using UnityEngine;
 public class WordManager : MonoBehaviour
 {
     WordSpawner wordSpawner;
-    TokensText tokensText;
+
+    // this is also referenced in InventoryManager.cs for EnemyDestroyer
+    [HideInInspector] public TokensText tokensText;
 
     // these are constantly constantly updated every time an enemy dies. The enemy passes it's enemyDeathPrefab and boolean value to these variable
     // See WordDisplay.cs and RemoveWord() for specifics
@@ -20,7 +22,7 @@ public class WordManager : MonoBehaviour
 
     [Header("Active Word")]
     public bool hasActiveWord;
-    public Word activeWord;
+    [HideInInspector] public Word activeWord;
 
     private void Awake()
     {

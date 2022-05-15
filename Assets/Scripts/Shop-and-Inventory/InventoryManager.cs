@@ -20,6 +20,11 @@ public class InventoryManager : MonoBehaviour
     [Header("Slow Time Ability")]
     public float timeScaleSlowedAmount;
     [SerializeField] float slowTimeCountdown;
+
+    [Header("Enemy Destroyer Ability")]
+    [SerializeField] float camIntensity;
+    [SerializeField] float camTime;
+
     float slowTimer;
     
     public static bool isInTimeSlowAbility; // this bool is used in PauseMenu.cs 
@@ -40,14 +45,10 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {   
         // When player presses TAB, open/close the inventory
-        if (Input.GetKeyDown(KeyCode.Tab) && inventory.activeSelf == false)
-        {
-            inventory.SetActive(true);
-        } 
-        else if (Input.GetKeyDown(KeyCode.Tab) && inventory.activeSelf == true)
-        {
-            inventory.SetActive(false);
-        }
+        if (Input.GetKeyDown(KeyCode.Tab) && inventory.activeSelf == false)      
+            inventory.SetActive(true);       
+        else if (Input.GetKeyDown(KeyCode.Tab) && inventory.activeSelf == true)       
+            inventory.SetActive(false);        
 
         // ----------------------------------------------------
         // USER INPUT TO ACTIVATE ITEMS/CONSUMABLES
@@ -103,6 +104,10 @@ public class InventoryManager : MonoBehaviour
     void ActivateEnemyDestroyer()
     {
         stats.enemyDestroyers--;
+        // play audio
+
+        WordManager wordManager = FindObjectOfType<WordManager>();
+        WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
 
         // get all enemies in the scene and kill them
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -111,6 +116,21 @@ public class InventoryManager : MonoBehaviour
             // access WordDisplay component to destroy enemy
             WordDisplay wd = enemies[i].GetComponentInChildren<WordDisplay>();
             wd.RemoveWord();
+
+            // camera shake
+            CinemachineShake.instance.ShakeCamera(camIntensity, camTime);
+
+            // decrement enemyCount for waveSpawner
+            waveSpawner.enemyCount--;
+
+            // check if enemy's word is the active word
+            GameObject enemyGameObject = enemies[i].GetComponentInChildren<WordDisplay>().enemyWord.enemyGameObject;
+            Word enemysWord = enemyGameObject.GetComponentInChildren<WordDisplay>().enemyWord;
+            wordManager.hasActiveWord = false;
+
+            // remove enemy's word from Words list in WordManager and add tokens
+            wordManager.words.Remove(enemysWord);
+            wordManager.tokensText.AddTokens(enemysWord.hiraganaLength);
         }
     }
 }
