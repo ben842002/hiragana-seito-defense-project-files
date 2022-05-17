@@ -104,7 +104,7 @@ public class InventoryManager : MonoBehaviour
     void ActivateEnemyDestroyer()
     {
         stats.enemyDestroyers--;
-        // play audio
+        GlobalAudioManager.instance.Play("Enemy Destroyer");
 
         WordManager wordManager = FindObjectOfType<WordManager>();
         WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();

@@ -100,3 +100,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 2475b07d6d3b6d844b5c7928b6d5754f, type: 3}
     loop: 0
     audioSource: {fileID: 0}
+  - name: Enemy Destroyer
+    volume: 0.25
+    pitch: 1
+    audioClip: {fileID: 8300000, guid: 89bf9538487db27428befe7a93514dd2, type: 3}
+    loop: 0
+    audioSource: {fileID: 0}
