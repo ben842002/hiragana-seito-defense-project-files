@@ -4,6 +4,7 @@ using UnityEngine;
 public class WordManager : MonoBehaviour
 {
     WordSpawner wordSpawner;
+    WaveSpawner waveSpawner;
 
     // this is also referenced in InventoryManager.cs for EnemyDestroyer
     [HideInInspector] public TokensText tokensText;
@@ -28,6 +29,7 @@ public class WordManager : MonoBehaviour
     {
         wordSpawner = GetComponent<WordSpawner>();
         tokensText = FindObjectOfType<TokensText>();
+        waveSpawner = FindObjectOfType<WaveSpawner>();
     }
 
     public void SpawnEnemyWord(GameObject enemyPrefab, Vector2 spawnPos, string romaji, string hiragana, Waypoints waypoints)
@@ -108,9 +110,9 @@ public class WordManager : MonoBehaviour
             // add tokens
             tokensText.AddTokens(activeWord.hiraganaLength);
 
-            // decrement enemyCount for waveSpawner
-            WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
+            // decrement enemyCount for waveSpawner and update text
             waveSpawner.enemyCount--;
+            EnemyCounter.instance.UpdateEnemyCounter(waveSpawner.enemyCount);
 
             // set active word boolean to false as the word has been completed and delete the active word from words list
             hasActiveWord = false;

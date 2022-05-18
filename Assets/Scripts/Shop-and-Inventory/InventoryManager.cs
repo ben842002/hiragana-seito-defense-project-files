@@ -55,7 +55,7 @@ public class InventoryManager : MonoBehaviour
 
         // -------------
         // Slow Time
-        if (Input.GetKeyDown(KeyCode.Alpha1) && stats.slowDownTime5s >= 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && stats.slowDownTime5s > 0)
             ActivateSlowTime();
         
         if (isInTimeSlowAbility == true)
@@ -104,6 +104,7 @@ public class InventoryManager : MonoBehaviour
     void ActivateEnemyDestroyer()
     {
         stats.enemyDestroyers--;
+        enemyDestroyerText.text = "2. EnemyDestroyer: " + stats.enemyDestroyers;
         GlobalAudioManager.instance.Play("Enemy Destroyer");
 
         WordManager wordManager = FindObjectOfType<WordManager>();
@@ -120,8 +121,9 @@ public class InventoryManager : MonoBehaviour
             // camera shake
             CinemachineShake.instance.ShakeCamera(camIntensity, camTime);
 
-            // decrement enemyCount for waveSpawner
+            // decrement enemyCount for waveSpawner and update text
             waveSpawner.enemyCount--;
+            EnemyCounter.instance.UpdateEnemyCounter(waveSpawner.enemyCount);
 
             // check if enemy's word is the active word
             GameObject enemyGameObject = enemies[i].GetComponentInChildren<WordDisplay>().enemyWord.enemyGameObject;
