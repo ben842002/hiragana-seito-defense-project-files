@@ -15,9 +15,6 @@ public class Word
     // keep track of correct romaji. This will be used to check if it matches any hiragana letters
     private string romajiTyped;
 
-    // this array is used in grammar special case 1
-    readonly char[] letters = { 'a', 'i', 'u', 'e', 'o', 'y' };
-
     // -----------------------------------------------------------------------------
 
     // store gameObject so turrets correctly shoot at target when typing
@@ -68,6 +65,9 @@ public class Word
 
         return wordTyped;
     }
+
+    // this array is used in grammar special case 1
+    readonly char[] letters = { 'a', 'i', 'u', 'e', 'o', 'y' };
 
     /// <summary>
     /// This function will let system know that a letter has been typed (increases romajiIndex)

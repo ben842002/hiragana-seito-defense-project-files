@@ -15,7 +15,7 @@ break
 jiso,じそ
 shikeso,しけそ
 sakashi,さかし
-gekeso,けけそ
+gekeso,げけそ
 oshi,おし
 azo,あぞ
 break

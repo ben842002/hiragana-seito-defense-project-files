@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3SA-ZA.unity
     guid: 6704ae9fbea089a4eb0bda90dea3ed43
+  - enabled: 1
+    path: Assets/Scenes/4TA-DA.unity
+    guid: fb77c64db5ceaa24ab264ea008a6bbb3
+  - enabled: 1
+    path: Assets/Scenes/5NA.unity
+    guid: c80b02faee2cf7e48ac9d98ebf9cd79b
   m_configObjects: {}

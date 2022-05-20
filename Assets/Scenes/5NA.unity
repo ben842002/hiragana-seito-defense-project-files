@@ -10835,6 +10835,8 @@ MonoBehaviour:
   - {fileID: 127285030}
   - {fileID: 1502136971}
   words: []
+  camIntensity: 2.5
+  camTime: 0.15
   hasActiveWord: 0
   activeWord:
     romajiWord: 
@@ -15940,7 +15942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1011353500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19601,16 +19603,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
+      propertyPath: waves.Array.data[0].rate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 2
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 1.75
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[3].rate
-      value: 2.25
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[4].rate

@@ -72,10 +72,13 @@ public class GameMaster : MonoBehaviour
         StartCoroutine(CalculateMaxTokens());
     }
 
+    /// <summary>
+    /// Calculate the maximum amount of tokens the player can get per level
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CalculateMaxTokens()
     {   
-        // wait a single frame so that 
-        yield return null;
+        yield return new WaitForSecondsRealtime(0.1f);
 
         // loop through each wave element in the Waves array in WaveSpawner.cs
         for (int i = 0; i < waveSpawner.waves.Length; i++)
