@@ -108,7 +108,6 @@ public class InventoryManager : MonoBehaviour
         GlobalAudioManager.instance.Play("Enemy Destroyer");
 
         WordManager wordManager = FindObjectOfType<WordManager>();
-        WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
 
         // get all enemies in the scene and kill them
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -122,8 +121,7 @@ public class InventoryManager : MonoBehaviour
             CinemachineShake.instance.ShakeCamera(camIntensity, camTime);
 
             // decrement enemyCount for waveSpawner and update text
-            waveSpawner.enemyCount--;
-            EnemyCounter.instance.UpdateEnemyCounter(waveSpawner.enemyCount);
+            WaveSpawner.UpdateEnemyCounter();
 
             // check if enemy's word is the active word
             GameObject enemyGameObject = enemies[i].GetComponentInChildren<WordDisplay>().enemyWord.enemyGameObject;

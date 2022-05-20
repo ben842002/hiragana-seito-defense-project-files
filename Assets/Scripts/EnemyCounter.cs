@@ -22,10 +22,10 @@ public class EnemyCounter : MonoBehaviour
 
         // initialize text
         WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
-        UpdateEnemyCounter(waveSpawner.enemyCount);
+        UpdateEnemyCountText(waveSpawner.enemyCount);
     }
 
-    public void UpdateEnemyCounter(int amount)
+    public void UpdateEnemyCountText(int amount)
     {
         enemyCounter.text = ": " + amount;
     }

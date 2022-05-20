@@ -63,14 +63,14 @@ public class EnemyMovement : MonoBehaviour
 
     void GetNextWaypoint()
     {   
+        // when enemy reaches last checkpoint
         if (waypointIndex >= wayP.waypoints.Length - 1)   
         {
             // adjust lives
             GameMaster.gm.RemoveLives(livesCost, gameObject);
 
-            // decrement enemyCount for waveSpawner
-            WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
-            waveSpawner.enemyCount--;
+            // decrement enemyCount for waveSpawner 
+            WaveSpawner.UpdateEnemyCounter();
 
             Destroy(gameObject);
 

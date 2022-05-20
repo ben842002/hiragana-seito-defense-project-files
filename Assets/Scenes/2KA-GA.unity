@@ -8315,6 +8315,8 @@ MonoBehaviour:
   - {fileID: 914741688}
   - {fileID: 751082528}
   words: []
+  camIntensity: 2.5
+  camTime: 0.15
   hasActiveWord: 0
   activeWord:
     romajiWord: 
@@ -12854,19 +12856,19 @@ PrefabInstance:
       objectReference: {fileID: 897771064}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[0].rate
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 2.25
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 3
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[3].rate
-      value: 2.75
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waypointObjects.Array.data[0]

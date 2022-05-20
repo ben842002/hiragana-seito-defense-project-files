@@ -73,9 +73,13 @@ public class Word
     /// This function will let system know that a letter has been typed (increases romajiIndex)
     /// </summary>
     public void TypeLetter()
-    {   
-        // store romaji that was typed into a temporary string list
+    {
+        if (romajiIndex == 0)
+            LettersTyped.instance.ResetLettersTypedText();
+
+        // store romaji that was typed into a temporary string list and display it on screen as well
         romajiTyped += romajiWord[romajiIndex];
+        LettersTyped.instance.DisplayLettersTyped(romajiTyped);
 
         // move to the next character in the romaji
         romajiIndex++;
@@ -94,8 +98,9 @@ public class Word
                 RemoveHiragana(1);
         }
 
-        // check if lettersTyped is equivalent to any hiragana. If so, remove the hiragana
+        // check if lettersTyped is equivalent to any hiragana. If so, remove the hiragana and reset the lettersTyped text
         HiraganaCheck(romajiTyped);
+       
     }
 
     // Function is called in HiraganaCheck

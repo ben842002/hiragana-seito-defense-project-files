@@ -27,8 +27,8 @@ public class ReadFile : MonoBehaviour
         // retrieve all lines from file
         var lines = hiraganaFile.text.Split(splitFile, System.StringSplitOptions.None);
 
-        List<string> romajiList = new List<string>();
-        List<string> hiraganaList = new List<string>();
+        List<string> romajiList = new();
+        List<string> hiraganaList = new();
 
         for (int i = 0; i < lines.Length; i++)
         {

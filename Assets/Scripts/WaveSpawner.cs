@@ -144,7 +144,7 @@ public class WaveSpawner : MonoBehaviour
 
         // hiragana.Length and romaji.Length will always be the same which means you can use either or
         enemyCount = _wave.hiraganaList.Count;
-        EnemyCounter.instance.UpdateEnemyCounter(enemyCount);
+        EnemyCounter.instance.UpdateEnemyCountText(enemyCount);
 
         // Spawn enemies on an interval (_wave.rate)
         int loopAmount = _wave.hiraganaList.Count;
@@ -178,6 +178,13 @@ public class WaveSpawner : MonoBehaviour
         }
 
         state = SpawnState.Waiting;
+    }
+
+    public static void UpdateEnemyCounter()
+    {
+        WaveSpawner waveSpawner = FindObjectOfType<WaveSpawner>();
+        waveSpawner.enemyCount--;
+        EnemyCounter.instance.UpdateEnemyCountText(waveSpawner.enemyCount);
     }
 
     // ------------------------------

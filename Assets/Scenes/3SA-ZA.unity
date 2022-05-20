@@ -10765,12 +10765,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459a330e7f6a57e41bab651968a7d2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tokensText: {fileID: 0}
   enemyDeathPrefab: {fileID: 5695112628659073873, guid: 606365e177c3a7f4989d37ce23cb98d6, type: 3}
   isFlipped: 0
   turrets:
   - {fileID: 914741688}
   - {fileID: 751082528}
   words: []
+  camIntensity: 2.5
+  camTime: 0.15
   hasActiveWord: 0
   activeWord:
     romajiWord: 
@@ -16799,19 +16802,19 @@ PrefabInstance:
       objectReference: {fileID: 897771064}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[0].rate
-      value: 2.75
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 2.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 2.5
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waves.Array.data[3].rate
-      value: 2.25
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7797585102655804991, guid: 4c213b5b15efa264b99b83ebe31625ad, type: 3}
       propertyPath: waypointObjects.Array.size
