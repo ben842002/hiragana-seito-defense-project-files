@@ -37,7 +37,11 @@ public class Word
         enemyGameObject = wordDisplayParentGameObject;
 
         // assign this enemy a particular waypoint path
-        enemyGameObject.GetComponent<EnemyMovement>().wayP = _waypoints;
+        // check if its a miniboss first. If not, its a regular enemy
+        if (enemyGameObject.TryGetComponent<MinibossMovement>(out _) == true)
+            enemyGameObject.GetComponent<MinibossMovement>().wayP = _waypoints;
+        else
+            enemyGameObject.GetComponent<EnemyMovement>().wayP = _waypoints;
 
         // assign wordDisplay and then use wordDisplay to display hiragana on screen 
         wordDisplay = _display;

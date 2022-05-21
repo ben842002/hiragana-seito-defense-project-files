@@ -3,53 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EnemyMovement : MonoBehaviour
+public class MinibossMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer sr;
-    EnemyKnockback kb;
+
+    public bool canMove;
+
+    [SerializeField] int livesCost;
 
     [HideInInspector] public Waypoints wayP;
-
-    // waypoint movement
     public float moveSpeed;
     private Transform target;
     private int waypointIndex = 0;
 
-    [SerializeField] int livesCost = 1;
-
-    // for animations
-    [Header("If the object is facing right, toggle isFlipped to true")]
-    [SerializeField] bool isFlipped;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        kb = GetComponent<EnemyKnockback>();
-    }
+    bool isFlipped = true;
 
     // Start is called before the first frame update
     void Start()
-    {   
-        // first waypoint
-        target = wayP.waypoints[0];
-    }
+    {
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
 
-    private void FixedUpdate()
-    {   
-        // move towards current designated waypoint
-        if (kb.knockBackTimer <= 0)
-        {
-            Vector3 direction = (target.position - transform.position).normalized * moveSpeed;
-            rb.velocity = new Vector2(direction.x, direction.y);
-            FaceWaypoint();
-        }
-        else
-        {
-            // knock back enemy
-            kb.Knockback(gameObject);
-        }
+        target = wayP.waypoints[0];
     }
 
     // Update is called once per frame
@@ -57,14 +33,24 @@ public class EnemyMovement : MonoBehaviour
     {
         // Once enemy is within reasonable distance of the waypoint, move onto to the next waypoint
         // Key Note: We didn't use Vector3.Distance because the sqr root operation is taxing (especially per frame for multiple instances of enemies)
-        if ((transform.position - target.position).sqrMagnitude <= 0.2f * 0.2f)       
-            GetNextWaypoint(); 
+        if ((transform.position - target.position).sqrMagnitude <= 0.2f * 0.2f)
+            GetNextWaypoint();
+    }
+
+    private void FixedUpdate()
+    {   
+        if (canMove)
+        {
+            Vector3 direction = (target.position - transform.position).normalized * moveSpeed;
+            rb.velocity = new Vector2(direction.x, direction.y);
+            FaceWaypoint();
+        }
     }
 
     void GetNextWaypoint()
-    {   
+    {
         // when enemy reaches last checkpoint
-        if (waypointIndex >= wayP.waypoints.Length - 1)   
+        if (waypointIndex >= wayP.waypoints.Length - 1)
         {
             // adjust lives
             GameMaster.gm.RemoveLives(livesCost, gameObject);

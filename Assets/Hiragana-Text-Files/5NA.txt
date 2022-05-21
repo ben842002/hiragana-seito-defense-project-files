@@ -24,3 +24,5 @@ shine,しね
 kuni,くに
 nakaketo,なかけと
 break
+naninota,なにのた
+break
